@@ -3,9 +3,9 @@
 namespace NFePHP\NFSeFiorilli\Common;
 
 /**
- * Auxiar Tools Class for comunications with NFSe webserver in Nacional Standard
+ * Auxiar Tools Class for comunications with provider Fiorilli
  *
- * @category  NFePHP
+ * @category  library
  * @package   NFePHP\NFSeFiorilli
  * @copyright NFePHP Copyright (c) 2020
  * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
