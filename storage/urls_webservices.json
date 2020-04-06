@@ -1,0 +1,1046 @@
+{
+    "1301902": {
+        "municipio": "Itacoatiara",
+        "uf": "AM",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1600303": {
+        "municipio": "Macap\u00e1",
+        "uf": "AP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5209705": {
+        "municipio": "Hidrol\u00e2ndia",
+        "uf": "GO",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2101202": {
+        "municipio": "Bacabal",
+        "uf": "MA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2103307": {
+        "municipio": "Cod\u00f3",
+        "uf": "MA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2105401": {
+        "municipio": "Itapecuru Mirim",
+        "uf": "MA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2108207": {
+        "municipio": "Pedreiras",
+        "uf": "MA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2109908": {
+        "municipio": "Santa In\u00eas",
+        "uf": "MA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2112209": {
+        "municipio": "Timon",
+        "uf": "MA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3124500": {
+        "municipio": "Estiva",
+        "uf": "MG",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3133758": {
+        "municipio": "Ita\u00fa de Minas",
+        "uf": "MG",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3134905": {
+        "municipio": "Jacutinga",
+        "uf": "MG",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3146008": {
+        "municipio": "Ouro Fino",
+        "uf": "MG",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3159605": {
+        "municipio": "Santa Rita do Sapuca\u00ed",
+        "uf": "MG",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3165404": {
+        "municipio": "Sapuca\u00ed-Mirim",
+        "uf": "MG",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5000609": {
+        "municipio": "Amambai",
+        "uf": "MS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5002951": {
+        "municipio": "Chapad\u00e3o do Sul",
+        "uf": "MS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5003207": {
+        "municipio": "Corumb\u00e1",
+        "uf": "MS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5003488": {
+        "municipio": "Dois Irm\u00e3os do Buriti",
+        "uf": "MS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5006002": {
+        "municipio": "Nova Alvorada do Sul",
+        "uf": "MS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5006309": {
+        "municipio": "Parana\u00edba",
+        "uf": "MS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5101803": {
+        "municipio": "Barra do Gar\u00e7as",
+        "uf": "MT",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5101902": {
+        "municipio": "Brasnorte",
+        "uf": "MT",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5104807": {
+        "municipio": "Jaciara",
+        "uf": "MT",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "5105234": {
+        "municipio": "Lambari D Oeste",
+        "uf": "MT",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1502152": {
+        "municipio": "Cana\u00e3 dos Caraj\u00e1s",
+        "uf": "PA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1503606": {
+        "municipio": "Itaituba",
+        "uf": "PA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1506161": {
+        "municipio": "Rio Maria",
+        "uf": "PA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1508407": {
+        "municipio": "Xinguara",
+        "uf": "PA",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2203909": {
+        "municipio": "Floriano",
+        "uf": "PI",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2207702": {
+        "municipio": "Parna\u00edba",
+        "uf": "PI",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "2208007": {
+        "municipio": "Picos",
+        "uf": "PI",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3301157": {
+        "municipio": "Cardoso Moreira",
+        "uf": "RJ",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1100023": {
+        "municipio": "Ariquemes",
+        "uf": "RO",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1100098": {
+        "municipio": "Espig\u00e3o D\u00b4Oeste",
+        "uf": "RO",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1100114": {
+        "municipio": "Jaru",
+        "uf": "RO",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1100122": {
+        "municipio": "Ji-Paran\u00e1",
+        "uf": "RO",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1100130": {
+        "municipio": "Machadinho D\u00b4Oeste",
+        "uf": "RO",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "1100155": {
+        "municipio": "Ouro Preto do Oeste",
+        "uf": "RO",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "4315313": {
+        "municipio": "Quatro Irm\u00e3os",
+        "uf": "RS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "4320404": {
+        "municipio": "Serafina Corr\u00eaa",
+        "uf": "RS",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3501004": {
+        "municipio": "Altin\u00f3polis",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3501509": {
+        "municipio": "Alvinl\u00e2ndia",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3501806": {
+        "municipio": "Am\u00e9rico de Campos",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3502903": {
+        "municipio": "Ara\u00e7oiaba da Serra",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3504008": {
+        "municipio": "Assis",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3504602": {
+        "municipio": "Bady Bassitt",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3504800": {
+        "municipio": "B\u00e1lsamo",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3505203": {
+        "municipio": "Bariri",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3507803": {
+        "municipio": "Brodowski",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3508306": {
+        "municipio": "Cabr\u00e1lia Paulista",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3509304": {
+        "municipio": "Cajobi",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3510104": {
+        "municipio": "C\u00e2ndido Rodrigues",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3510302": {
+        "municipio": "Capela do Alto",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3511300": {
+        "municipio": "Cedral",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3512100": {
+        "municipio": "Col\u00f4mbia",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3512902": {
+        "municipio": "Cosmorama",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3514403": {
+        "municipio": "Dracena",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3514502": {
+        "municipio": "Duartina",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3515608": {
+        "municipio": "Fernando Prestes",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3515509": {
+        "municipio": "Fernand\u00f3polis",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3516705": {
+        "municipio": "Gar\u00e7a",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3517208": {
+        "municipio": "Guai\u00e7ara",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3517307": {
+        "municipio": "Guaimb\u00ea",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3517406": {
+        "municipio": "Gua\u00edra",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3517703": {
+        "municipio": "Guar\u00e1",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3518206": {
+        "municipio": "Guararapes",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3519055": {
+        "municipio": "Holambra",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3519303": {
+        "municipio": "Ibat\u00e9",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3519600": {
+        "municipio": "Ibitinga",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3520103": {
+        "municipio": "Igarapava",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3520707": {
+        "municipio": "Indiapor\u00e3",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3520806": {
+        "municipio": "In\u00fabia Paulista",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3521903": {
+        "municipio": "Itajobi",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3525706": {
+        "municipio": "Jos\u00e9 Bonif\u00e1cio",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3526001": {
+        "municipio": "Junqueir\u00f3polis",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3526407": {
+        "municipio": "Laranjal Paulista",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3529203": {
+        "municipio": "Martin\u00f3polis",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3529708": {
+        "municipio": "Miguel\u00f3polis",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3530102": {
+        "municipio": "Mirand\u00f3polis",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3530409": {
+        "municipio": "Mirassol\u00e2ndia",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3531100": {
+        "municipio": "Mongagu\u00e1",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3531407": {
+        "municipio": "Monte Apraz\u00edvel",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3532009": {
+        "municipio": "Morungaba",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3532801": {
+        "municipio": "Nova Alian\u00e7a",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3533007": {
+        "municipio": "Nova Granada",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3533502": {
+        "municipio": "Novo Horizonte",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3535101": {
+        "municipio": "Palmares Paulista",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3535408": {
+        "municipio": "Panorama",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3536307": {
+        "municipio": "Patroc\u00ednio Paulista",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3536604": {
+        "municipio": "Paulo de Faria",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3537107": {
+        "municipio": "Pedreira",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3538907": {
+        "municipio": "Piraju\u00ed",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3539004": {
+        "municipio": "Pirangi",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3539202": {
+        "municipio": "Pirapozinho",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3540200": {
+        "municipio": "Pontal",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3540804": {
+        "municipio": "Potirendaba",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3541604": {
+        "municipio": "Promiss\u00e3o",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3541703": {
+        "municipio": "Quat\u00e1",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3541802": {
+        "municipio": "Queiroz",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3542909": {
+        "municipio": "Ribeir\u00e3o Bonito",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3543105": {
+        "municipio": "Ribeir\u00e3o Corrente",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3544004": {
+        "municipio": "Rio das Pedras",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3544202": {
+        "municipio": "Riol\u00e2ndia",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3544608": {
+        "municipio": "Sabino",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3544806": {
+        "municipio": "Sales",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3544905": {
+        "municipio": "Sales Oliveira",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3545308": {
+        "municipio": "Salto de Pirapora",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3547700": {
+        "municipio": "Santo Anast\u00e1cio",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3548005": {
+        "municipio": "Santo Ant\u00f4nio de Posse",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3549409": {
+        "municipio": "S\u00e3o Joaquim da Barra",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3551405": {
+        "municipio": "Serra Azul",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3551603": {
+        "municipio": "Serra Negra",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3552304": {
+        "municipio": "Sud Mennucci",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3555356": {
+        "municipio": "Ubarana",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    },
+    "3555802": {
+        "municipio": "Ur\u00e2nia",
+        "uf": "SP",
+        "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
+        "producao": "",
+        "version": "2.01",
+        "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
+        "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"
+    }
+}
