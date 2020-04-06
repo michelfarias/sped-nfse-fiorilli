@@ -2,8 +2,41 @@
 
 namespace NFePHP\NFSeFiorilli;
 
-class Tools
+/**
+ * Class for comunications with NFSe webserver provder Fiorilli
+ *
+ * @category  Library
+ * @package   NFePHP\NFSeFiorilli
+ * @copyright NFePHP Copyright (c) 2020
+ * @license   http://www.gnu.org/licenses/lgpl.txt LGPLv3+
+ * @license   https://opensource.org/licenses/MIT MIT
+ * @license   http://www.gnu.org/licenses/gpl.txt GPLv3+
+ * @author    Roberto L. Machado <linux.rlm at gmail dot com>
+ * @link      http://github.com/nfephp-org/sped-nfse-fiorilli for the canonical source repository
+ */
+
+use NFePHP\NFSeFiorilli\Common\Tools as BaseTools;
+use NFePHP\NFSeFiorilli\RpsInterface;
+use NFePHP\NFSeFiorilli\Common\Signer;
+use NFePHP\Common\Certificate;
+use NFePHP\Common\Validator;
+
+class Tools extends BaseTools
 {
+
+    /**
+     * Constructor
+     * @param string $config
+     * @param Certificate $cert
+     */
+    public function __construct($config, Certificate $cert)
+    {
+        parent::__construct($config, $cert);
+        $path = realpath(
+            __DIR__ . '/../storage/schemes'
+        );
+        $this->xsdpath = "{$path}/nfse_v201.xsd";
+    }
     
     /*
      * Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "Accept-Encoding: gzip,deflate[\r][\n]"
@@ -14,6 +47,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function cancelarNFSe()
     {
+        $action = 'cancelarNfse';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
    <soapenv:Header/>
@@ -167,6 +202,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function consultarLoteRps()
     {
+        $action = 'consultarLoteRps';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd">
    <soapenv:Header/>
@@ -199,6 +236,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function consultarNfseProFaixa()
     {
+        $action = 'consultarNfsePorFaixa';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd">
    <soapenv:Header/>
@@ -236,6 +275,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function consultarNfsePorRps()
     {
+        $action = 'consultarNfsePorRps';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd">
    <soapenv:Header/>
@@ -272,6 +313,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function consultarNfseServicoPrestado()
     {
+        $action = 'consultarNfseServicoPrestado';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd">
    <soapenv:Header/>
@@ -340,6 +383,9 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function consultarNfseServicoTomado()
     {
+        
+        $action = 'consultarNfseServicoTomado';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd">
    <soapenv:Header/>
@@ -419,6 +465,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function gerarNfse()
     {
+        $action = 'gerarNfse';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
    <soapenv:Header/>
@@ -698,6 +746,9 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function recepcionarLoteRps()
     {
+        
+        $action = 'recepcionarLoteRps';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
    <soapenv:Header/>
@@ -1105,6 +1156,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function recepcionarLoteRpsSincrono()
     {
+        $action = 'recepcionarLoteRpsSincrono';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
    <soapenv:Header/>
@@ -1513,6 +1566,8 @@ Mon Apr 06 16:12:18 BRT 2020:DEBUG:>> "SOAPAction: "substituirNfse"[\r][\n]"
     
     public function substituirNfse()
     {
+        $action = 'substituirNfse';
+        
         /*
          * <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.issweb.fiorilli.com.br/" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
    <soapenv:Header/>
