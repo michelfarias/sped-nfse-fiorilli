@@ -1,5 +1,7 @@
 <?php
 
+namespace NFePHP\NFSeFiorilli;
+
 class Tools
 {
     
