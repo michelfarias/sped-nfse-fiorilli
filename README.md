@@ -144,12 +144,9 @@
 ## Observações
 
 - Recomenda-se a utilização do envio síncrono, pois as notas enviadas no envio assíncrono são processadas somente as 2h da manhã de cada dia;
-- É obrigatório a informação de login e senha para todos os métodos de comunicação. Ex: _XML := ProxyNFSe.EnviarSincrono(mmXML.Text, 'Login=XXXXXXXXX;Senha=XXXXXX');
+- É obrigatório a informação de login e senha para todos os métodos de comunicação.
 - Para a emissão das notas no ambiente de homologação deve ser utilizado os dados de um usuário de testes liberado pela prefeitura: CNPJ=01001001000113, IM:15000, Login=01001001000113, Senha=123456;
-- Para gerar um XML compatível com o envio síncrono via Tx2, é necessário informar o parâmetro extra EnvioSincrono=True. Ex: _XML := spdNFSeConverterX.ConverterEnvioNFSe(OpnDlgTx2.FileName, 'EnvioSincrono=True');
-- Para gerar um XML compatível com o envio síncrono via Dataset, é necessário setar a propriedade MappingFileName com o valor 'MappingEnvioSincrono.txt'.
-- No cancelamento, pode-se informar o parâmetro Extra CodigoCancelamento. Se este não for informado, o componente assumirá este valor como 2 (Serviço não prestado). Ex: _XML := ProxyNFSe.CancelarNota('123', 'CodigoCancelamento=0');
-- No cancelamento, pode-se informar o parâmetro Extra CodigoMunicipio, referente ao código IBGE do município. Se este não for informado, o componente assumirá este valor do município que está configurado. Ex: _XML := ProxyNFSe.CancelarNota('123', 'CodigoMunicipio=3504800');
+- No cancelamento, pode-se informar o parâmetro CodigoCancelamento. Se este não for informado, o componente assumirá este valor como 2 (Serviço não prestado).
 - No cancelamento em Homologação, o parâmetro extra CodigoMunicipio a ser informado deverá ser 3504800, pois o servidor de Homologação é situado em Bálsamo - SP;
 - Através do site de NFSe disponibilizado pela prefeitura da cidade é possível emitir notas com mais de um item, porém pelo WebService não é possível de acordo com o schemas.xsd. Ao consultar notas emitidas com mais de um item é retornado apenas o último item da nota. Devido a isso não é possível emitir e imprimir notas com mais de um item.
 
