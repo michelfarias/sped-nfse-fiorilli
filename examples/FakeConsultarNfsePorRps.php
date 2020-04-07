@@ -33,21 +33,16 @@ try {
     $tools->loadSoapClass($soap);
 
     /*
-     * Códigos de Cancelamento
-     * 1 – Erro na emissão
-     * 2 – Serviço não prestado
-     * 3 – Erro de assinatura
-     * 4 – Duplicidade da nota
-     * 5 – Erro de processamento 4
-     * Importante: Os códigos 3 (Erro de assinatura) e
-     * 5 (Erro de processamento) são de uso restrito da
-     * Administração Tributária Municipal
+     * Tipos de RPS
+     * 1 – RPS
+     * 2 – Nota Fiscal Conjugada (Mista)
+     * 3 – Cupom
      */
+    $numero = 973;
+    $serie = '1';
+    $tipo = 1;
     
-    $numero = 12457;
-    $cod_cancelamento = 2;
-    
-    $response = $tools->cancelarNfse($numero, $cod_cancelamento);
+    $response = $tools->consultarNfsePorRps($numero, $serie, $tipo);
 
     echo FakePretty::prettyPrint($response, '');
  

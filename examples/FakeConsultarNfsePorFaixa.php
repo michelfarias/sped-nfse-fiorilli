@@ -32,22 +32,11 @@ try {
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    /*
-     * Códigos de Cancelamento
-     * 1 – Erro na emissão
-     * 2 – Serviço não prestado
-     * 3 – Erro de assinatura
-     * 4 – Duplicidade da nota
-     * 5 – Erro de processamento 4
-     * Importante: Os códigos 3 (Erro de assinatura) e
-     * 5 (Erro de processamento) são de uso restrito da
-     * Administração Tributária Municipal
-     */
+    $inicial = 1234;
+    $final = 1277;
+    $pagina = 1;
     
-    $numero = 12457;
-    $cod_cancelamento = 2;
-    
-    $response = $tools->cancelarNfse($numero, $cod_cancelamento);
+    $response = $tools->consultarNfsePorFaixa($inicial, $final, $pagina = 1);
 
     echo FakePretty::prettyPrint($response, '');
  

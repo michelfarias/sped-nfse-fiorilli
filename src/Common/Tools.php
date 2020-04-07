@@ -32,6 +32,10 @@ class Tools
     protected $wsobj;
     protected $soap;
     protected $environment;
+    protected $cpfcnpjtag;
+    protected $imtag;
+    protected $prestador;
+    protected $url;
 
     /**
      * Constructor
@@ -44,24 +48,26 @@ class Tools
         $this->certificate = $cert;
         $this->wsobj = $this->loadWsobj($this->config->cmun);
         $this->environment = 'homologacao';
+        $this->url = $this->wsobj->homologacao;
         if ($this->config->tpamb === 1) {
             $this->environment = 'producao';
+            $this->url = $this->wsobj->producao;
         }
-        $this->buildRemetenteTag();
+        $this->buildPrestador();
     }
-
-    /**
-     * Build tag Rementente
-     */
-    protected function buildRemetenteTag()
+    
+    protected function buildPrestador()
     {
-        $this->remetente = "<CPFCNPJRemetente>";
-        if (!empty($this->config->cnpj)) {
-            $this->remetente .= "<CNPJ>{$this->config->cnpj}</CNPJ>";
-        } else {
-            $this->remetente .= "<CPF>{$this->config->cpf}</CPF>";
+        if (!empty($this->config->cpf)) {    
+            $this->cpfcnpjtag = "<nfse:CpfCnpj><nfse:Cpf>{$this->config->cpf}</nfse:Cpf></nfse:CpfCnpj>";
+        } elseif (!empty($this->config->cnpj)) {    
+            $this->cpfcnpjtag = "<nfse:CpfCnpj><nfse:Cnpj>{$this->config->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
         }
-        $this->remetente .= "</CPFCNPJRemetente>";
+        $this->imtag = "<nfse:InscricaoMunicipal>{$this->config->im}</nfse:InscricaoMunicipal>";
+        $this->prestador = "<nfse:Prestador>"
+            . $this->cpfcnpjtag
+            . $this->imtag
+            . "</nfse:Prestador>";
     }
 
     /**
@@ -114,41 +120,24 @@ class Tools
      * @param string $mode sincrono ou assincrono
      * @return string XML response from webservice
      */
-    public function send($message, $operation, $mode)
+    public function send($message, $operation)
     {
-        switch ($operation) {
-            case 'TesteEnvioLoteRPS':
-                $action = "{$this->wsobj->soapns}/ws/testeenvio";
-                break;
-            case 'EnvioLoteRpsAsync':
-                $action = "{$this->wsobj->soapns}/ws/envioLoteRPSAsync";
-                break;
-            case 'TesteEnvioLoteRpsAsync':
-                $action = "{$this->wsobj->soapns}/ws/testeEnvioLoteRPSAsync";
-                break;
-            default:
-                $action = "{$this->wsobj->soapns}/ws/". lcfirst($operation);
-        }
-        $modo = "{$mode}_homologacao";
-        if ($this->environment === 'producao') {
-            $modo = "{$mode}_producao";
-        }
-        $url = $this->wsobj->$modo;
-        if (empty($url)) {
+        if (empty($this->url)) {
             throw new \Exception("Não está registrada a URL para o ambiente "
             . "de {$this->environment} desse municipio.");
         }
-        $request = $this->createSoapRequest($message, $operation, $mode);
+        $request = $this->createSoapRequest($message, $operation);
         $this->lastRequest = $request;
 
         if (empty($this->soap)) {
             $this->soap = new SoapCurl($this->certificate);
         }
         $msgSize = strlen($request);
-
+        $action = "{$this->wsobj->soapns}$operation";
         $parameters = [
             "Accept-Encoding: gzip,deflate",
-            "Content-Type: application/soap+xml;charset=UTF-8;action=\"{$action}\"",
+            "Content-Type: text/xml;charset=UTF-8",
+            "SOAPAction: {$action}",
             "Content-length: $msgSize"
         ];
         if ($mode == 'assincrono') {
@@ -161,7 +150,7 @@ class Tools
         }
         $response = (string) $this->soap->send(
             $operation,
-            $url,
+            $this->url,
             $action,
             $request,
             $parameters
@@ -203,39 +192,38 @@ class Tools
      * Build SOAP request
      * @param string $message
      * @param string $operation
-     * @param string $mode
      * @return string XML SOAP request
      */
-    protected function createSoapRequest($message, $operation, $mode)
+    protected function createSoapRequest($message, $operation)
     {
-        //$operation = str_replace('Async', '', $operation);
-        $versionText = "VersaoSchema";
-        if ($mode == 'assincrono') {
-            $versionText = "versaoSchema";
-        }
-        //$cdata = htmlspecialchars($message, ENT_NOQUOTES);
-        $env = "<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" "
-            . "xmlns:nfe=\"{$this->wsobj->soapns}\">"
-            . "<soap:Header/>"
-            . "<soap:Body>"
-            . "<nfe:{$operation}Request>"
-            . "<nfe:{$versionText}>{$this->wsobj->version}</nfe:{$versionText}>"
-            . "<nfe:MensagemXML></nfe:MensagemXML>"
-            . "</nfe:{$operation}Request>"
-            . "</soap:Body>"
-            . "</soap:Envelope>";
+        $env = "<soapenv:Envelope "
+            . "xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" "
+            . "xmlns:ws=\"{$this->wsobj->soapns}\" "
+            . "xmlns:nfse=\"{$this->wsobj->msgns}\">"
+            . "<soapenv:Header/>"
+            . "<soapenv:Body>"
+            . "<ws:{$operation}>"
+            . "{$message}"
+            . "<username>{$this->config->login}</username>"
+            . "<password>{$this->config->password}</password>"
+            . "</ws:{$operation}>"
+            . "</soapenv:Body>"
+            . "</soapenv:Envelope>";
 
-        $dom = new \DOMDocument('1.0', 'UTF-8');
-        $dom->formatOutput = false;
-        $dom->preserveWhiteSpace = false;
-        $dom->loadXML($env);
-        $node = $dom->getElementsByTagName('MensagemXML')->item(0);
-        $node->appendChild($dom->createCDATASection($message));
-        $env = $dom->saveXML();
-
-        //header("Content-type: text/xml");
-        //echo $env;
-        //die;
+        header("Content-type: text/xml");
+        echo $env;
+        die;
         return $env;
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    protected function numeric_uuid()
+    {
+        list($usec, $sec) = explode(" ", microtime());
+        $num = round(((float)$usec + (float)$sec)*1000, 0);
+        return substr($num, -15);
     }
 }
