@@ -1,6 +1,6 @@
 # sped-nfse-fiorilli
 
-## EM INICIO DE DESENVOLVIMENTO
+## BETHA-TESTS
 
 ## Este pacote atende o provedor FIORILLI
 
@@ -19,6 +19,8 @@
 
 
 ## Municípios atendidos pelo provedor
+
+> NOTA: Faltam as URLs dos servidores de Produção desses Municipios, quem desejar usar deve informar essa URL para incluirmos no código.
 
 |n|Município|UF|Ibge|
 |:---:|:---|:---:|:---:|

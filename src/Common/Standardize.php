@@ -35,22 +35,27 @@ class Standardize
      * @var array
      */
     public $rootTagList = [
-        'ConsultaCNPJRequest',
-        'ConsultaNFeEmitidasRequest',
-        'ConsultaNFeRecebidasRequest',
-        'ConsultaNFesRequest',
-        'PedidoConsultaCNPJ',
-        'PedidoConsultaNFe',
-        'PedidoConsultaNFePeriodo',
-        'RetornoConsultaCNPJ',
-        'RetornoInformacoesLote',
-        'RetornoConsultaSituacaoLote',
-        'RetornoConsulta',
-        'RetornoCancelamentoNFe',
-        'RetornoEnvioLoteRPS',
-        'RetornoEnvioLoteRPSAsync',
-        'RetornoEnvioRPS',
-        'RetornoXML',
+        'CancelarNfseEnvio',
+        'SubstituirNfseEnvio',
+        'ConsultarLoteRpsEnvio',
+        'ConsultarNfseEnvio',
+        'ConsultarNfseFaixaEnvio',
+        'ConsultarNfseServicoPrestadoEnvio',
+        'ConsultarNfseServicoTomadoEnvio',
+        'ConsultarNfseRpsEnvio',
+        'EnviarLoteRpsSincronoEnvio',
+        'GerarNfseEnvio',
+        'CancelarNfseResposta',
+        'SubstituirNfseResposta',
+        'ConsultarLoteRpsResposta',
+        'ConsultarNfseResposta',
+        'ConsultarNfseFaixaResposta',
+        'ConsultarNfseServicoPrestadoResposta',
+        'ConsultarNfseServicoTomadoResposta',
+        'ConsultarNfseRpsResposta',
+        'EnviarLoteRpsSincronoResposta',
+        'EnviarLoteRpsResposta',
+        'GerarNfseResposta',
         'RPS'
     ];
     
@@ -86,7 +91,7 @@ class Standardize
             }
         }
         throw new InvalidArgumentException(
-            "Este xml não pertence ao projeto NFSe Fiorilli."
+            "Este xml não pertence ao projeto NFSe Nacional."
         );
     }
     
