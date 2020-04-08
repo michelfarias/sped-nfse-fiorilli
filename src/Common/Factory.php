@@ -301,10 +301,12 @@ class Factory
             $serv->itemlistaservico,
             true
         );
+        //se for passado um codigo CNAE começando com ZERO irá dar erro de assinatura
+        //portanto esse codigo (opecional) não será usado
         $this->dom->addChild(
             $node,
             "CodigoCnae",
-            isset($serv->codigocnae) ? $serv->codigocnae : null,
+            null, //isset($serv->codigocnae) ? $serv->codigocnae : null,
             false
         );
         $this->dom->addChild(
