@@ -76,7 +76,7 @@ class Signer
         if (empty($node) || empty($root)) {
             throw SignerException::tagNotFound($tagname);
         }
-        if (!self::existsSignature($content)) {
+        //if (!self::existsSignature($content)) {
             $dom = self::createSignature(
                 $certificate,
                 $dom,
@@ -87,7 +87,7 @@ class Signer
                 $canonical,
                 $options
             );
-        }
+        //}
         return $dom->saveXML($dom->documentElement, LIBXML_NOXMLDECL);
     }
     

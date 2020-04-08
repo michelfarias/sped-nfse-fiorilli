@@ -32,22 +32,9 @@ try {
     $tools = new Tools($configJson, $cert);
     $tools->loadSoapClass($soap);
 
-    /*
-     * Códigos de Cancelamento
-     * 1 – Erro na emissão
-     * 2 – Serviço não prestado
-     * 3 – Erro de assinatura
-     * 4 – Duplicidade da nota
-     * 5 – Erro de processamento 4
-     * Importante: Os códigos 3 (Erro de assinatura) e
-     * 5 (Erro de processamento) são de uso restrito da
-     * Administração Tributária Municipal
-     */
+    $protocolo  = '1234-bfeab-3456';
     
-    $numero = 12457;
-    $cod_cancelamento = 2;
-    
-    $response = $tools->cancelarNfse($numero, $cod_cancelamento);
+    $response = $tools->consultarLoteRps($protocolo);
 
     echo FakePretty::prettyPrint($response, '');
  

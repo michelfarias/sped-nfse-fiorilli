@@ -22,26 +22,26 @@ use DOMElement;
 
 class Factory
 {
+
     /**
      * @var stdClass
      */
     protected $std;
+
     /**
      * @var Dom
      */
     protected $dom;
+
     /**
      * @var DOMNode
      */
     protected $rps;
+
     /**
      * @var \stdClass
      */
     protected $config;
-    /**
-     * @var Certificate
-     */
-    protected $certificate;
 
     /**
      * Constructor
@@ -54,10 +54,7 @@ class Factory
         $this->dom = new Dom('1.0', 'UTF-8');
         $this->dom->preserveWhiteSpace = false;
         $this->dom->formatOutput = false;
-        $this->rps = $this->dom->createElement('RPS');
-        $att = $this->dom->createAttribute('xmlns');
-        $att->value = "";
-        $this->rps->appendChild($att);
+        $this->rps = $this->dom->createElementNS('http://www.abrasf.org.br/nfse.xsd', 'nfse:Rps');
     }
 
     /**
@@ -68,371 +65,478 @@ class Factory
     {
         $this->config = $config;
     }
-    
-    public function addCertificate(Certificate $cert)
-    {
-        $this->certificate = $cert;
-    }
 
     /**
      * Builder, converts sdtClass Rps in XML Rps
+     * NOTE: without Prestador Tag
      * @return string RPS in XML string format
      */
     public function render()
     {
-        if (!empty($this->certificate) && !empty($this->config)) {
-            $ass = $this->signstr();
-            $this->dom->addChild(
-                $this->rps,
-                "Assinatura",
-                $ass,
-                true
-            );
+        $num = '';
+        if (!empty($this->std->identificacaorps->numero)) {
+            $num = $this->std->identificacaorps->numero;
         }
-        $chave = $this->dom->createElement('ChaveRPS');
+        $infRps = $this->dom->createElement('nfse:InfDeclaracaoPrestacaoServico');
+        $att = $this->dom->createAttribute('Id');
+        $att->value = "rps{$num}";
+        $infRps->appendChild($att);
+
+        $this->addIdentificacao($infRps);
+
         $this->dom->addChild(
-            $chave,
-            "InscricaoPrestador",
-            !empty($this->config->im) ? $this->config->im : null,
-            false
-        );
-        $this->dom->addChild(
-            $chave,
-            "SerieRPS",
-            !empty($this->std->serie) ? $this->std->serie : null,
-            false
-        );
-        $this->dom->addChild(
-            $chave,
-            "NumeroRPS",
-            $this->std->numero,
+            $infRps,
+            "nfse:Competencia",
+            $this->std->competencia,
             true
         );
-        $this->rps->appendChild($chave);
+
+        $this->addServico($infRps);
+        $this->addPrestador($infRps);
+        $this->addTomador($infRps);
+        $this->addIntermediario($infRps);
+        $this->addConstrucao($infRps);
+
         $this->dom->addChild(
-            $this->rps,
-            "TipoRPS",
-            $this->std->tipo,
-            true
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "DataEmissao",
-            $this->std->dataemissao,
+            $infRps,
+            "nfse:RegimeEspecialTributacao",
+            $this->std->regimeespecialtributacao,
             true
         );
         $this->dom->addChild(
-            $this->rps,
-            "StatusRPS",
-            $this->std->status,
+            $infRps,
+            "nfse:OptanteSimplesNacional",
+            $this->std->optantesimplesnacional,
             true
         );
         $this->dom->addChild(
-            $this->rps,
-            "TributacaoRPS",
-            $this->std->tributacao,
+            $infRps,
+            "nfse:IncentivoFiscal",
+            $this->std->incentivofiscal,
             true
         );
-        $this->dom->addChild(
-            $this->rps,
-            "ValorServicos",
-            $this->std->valorservicos,
-            true
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "ValorDeducoes",
-            $this->std->valordeducoes,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "ValorPIS",
-            $this->std->valorpis,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "ValorCOFINS",
-            $this->std->valorcofins,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "ValorINSS",
-            $this->std->valorinss,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "ValorIR",
-            $this->std->valorir,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "ValorCSLL",
-            $this->std->valorcsll,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "CodigoServico",
-            $this->std->codigoservico,
-            true
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "AliquotaServicos",
-            $this->std->aliquota,
-            true
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "ISSRetido",
-            $this->std->issretido == false ? "false" : "true",
-            true
-        );
-        
-        $tom = $this->std->tomador;
-        if (!empty($tom->cnpj) || !empty($tom->cpf)) {
-            $node = $this->dom->createElement('CPFCNPJTomador');
-            if (!empty($tom->cnpj)) {
-                $this->dom->addChild(
-                    $node,
-                    "CNPJ",
-                    !empty($tom->cnpj) ? $tom->cnpj : null,
-                    false
-                );
-            } elseif (!empty($tom->cpf)) {
-                $this->dom->addChild(
-                    $node,
-                    "CPF",
-                    !empty($tom->cpf) ? $tom->cpf : null,
-                    false
-                );
-            }
-            $this->rps->appendChild($node);
-        }
-        $this->dom->addChild(
-            $this->rps,
-            "InscricaoMunicipalTomador",
-            !empty($tom->im) ? str_pad($tom->im, 8, '0', STR_PAD_LEFT) : null,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "InscricaoEstadualTomador",
-            !empty($tom->ie) ? $tom->ie : null,
-            false
-        );
-        $this->dom->addChild(
-            $this->rps,
-            "RazaoSocialTomador",
-            !empty($tom->nome) ? $tom->nome : null,
-            false
-        );
-        $te = $tom->endereco;
-        $end = $this->dom->createElement('EnderecoTomador');
-        $this->dom->addChild(
-            $end,
-            "TipoLogradouro",
-            !empty($te->tipologradouro) ? $te->tipologradouro : null,
-            false
-        );
-        $this->dom->addChild(
-            $end,
-            "Logradouro",
-            !empty($te->logradouro) ? $te->logradouro : null,
-            false
-        );
-        $this->dom->addChild(
-            $end,
-            "NumeroEndereco",
-            !empty($te->numero) ? $te->numero : null,
-            false
-        );
-        $this->dom->addChild(
-            $end,
-            "ComplementoEndereco",
-            !empty($te->complemento) ? $te->complemento : null,
-            false
-        );
-        $this->dom->addChild(
-            $end,
-            "Bairro",
-            !empty($te->bairro) ? $te->bairro : null,
-            false
-        );
-        $this->dom->addChild(
-            $end,
-            "Cidade",
-            !empty($te->codigoibge) ? $te->codigoibge : null,
-            false
-        );
-        $this->dom->addChild(
-            $end,
-            "UF",
-            !empty($te->uf) ? $te->uf : null,
-            false
-        );
-        $this->dom->addChild(
-            $end,
-            "CEP",
-            !empty($te->cep) ? $te->cep : null,
-            false
-        );
-        $this->rps->appendChild($end);
-        $this->dom->addChild(
-            $this->rps,
-            "EmailTomador",
-            !empty($tom->email) ? $tom->email : null,
-            false
-        );
-        
-        if (!empty($this->std->intermediario)) {
-            $int = $this->std->intermediario;
-            if (!empty($int->cnpj) || !empty($int->cpf)) {
-                $node = $this->dom->createElement('CPFCNPJIntermediario');
-                if (!empty($int->cnpj)) {
-                    $this->dom->addChild(
-                        $node,
-                        "CNPJ",
-                        !empty($int->cnpj) ? $int->cnpj : null,
-                        false
-                    );
-                } else {
-                    $this->dom->addChild(
-                        $node,
-                        "CPF",
-                        !empty($int->cpf) ? $int->cpf : null,
-                        false
-                    );
-                }
-                $this->rps->appendChild($node);
-            }
-            $this->dom->addChild(
-                $this->rps,
-                "InscricaoMunicipalIntermediario",
-                !empty($int->im) ? $int->im : null,
-                false
-            );
-            $iss = null;
-            if (isset($int->issretido)) {
-                $iss = ($int->issretido == false) ? "false" : "true";
-            }
-            $this->dom->addChild(
-                $this->rps,
-                "ISSRetidoIntermediario",
-                $iss,
-                false
-            );
-            $this->dom->addChild(
-                $this->rps,
-                "EmailIntermediario",
-                !empty($int->email) ? $int->email : null,
-                false
-            );
-        }
-        
-        $this->dom->addChild(
-            $this->rps,
-            "Discriminacao",
-            $this->std->discriminacao,
-            true
-        );
-        
-        if (!empty($this->std->construcaocivil)) {
-            $this->dom->addChild(
-                $this->rps,
-                "CodigoCEI",
-                $this->std->construcaocivil->codigoobra,
-                false
-            );
-            $this->dom->addChild(
-                $this->rps,
-                "MatriculaObra",
-                $this->std->construcaocivil->matricula,
-                false
-            );
-            $this->dom->addChild(
-                $this->rps,
-                "MunicipioPrestacao",
-                $this->std->construcaocivil->municipioprestacao,
-                false
-            );
-            $this->dom->addChild(
-                $this->rps,
-                "NumeroEncapsulamento",
-                $this->std->construcaocivil->numeroencapsulamento,
-                false
-            );
-        }
-        
-        $this->dom->addChild(
-            $this->rps,
-            "ValorTotalRecebido",
-            $this->std->valortotalrecebido,
-            false
-        );
-        
+        $this->rps->appendChild($infRps);
         $this->dom->appendChild($this->rps);
         return str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', $this->dom->saveXML());
     }
 
     /**
-     * Cria o valor da assinatura do RPS
-     * @param Rps $rps
-     * @return string
+     * Includes Identificacao TAG in parent NODE
+     * @param DOMNode $parent
      */
-    private function signstr()
+    protected function addIdentificacao(&$parent)
     {
-        $tomtipodoc = 3;
-        $tomdoc = '';
-        if (!empty($this->std->tomador->cnpj)) {
-            $tomtipodoc = 2;
-            $tomdoc = $this->std->tomador->cnpj;
-        } elseif (!empty($this->std->tomador->cpf)) {
-            $tomtipodoc = 1;
-            $tomdoc = $this->std->tomador->cpf;
+        if (empty($this->std->identificacaorps)) {
+            return;
         }
-        $inttipodoc = 3;
-        $intdoc = '';
-        if (!empty($this->std->intermediario->cnpj)) {
-            $inttipodoc = 2;
-            $intdoc = $this->std->intermediario->cnpj;
-        } elseif (!empty($this->std->intermediario->cpf)) {
-            $inttipodoc = 1;
-            $intdoc = $this->std->intermediario->cpf;
-        }
-        $content = str_pad($this->config->im, 8, '0', STR_PAD_LEFT);
-        $content .= str_pad($this->std->serie, 5, ' ', STR_PAD_RIGHT);
-        $content .= str_pad($this->std->numero, 12, '0', STR_PAD_LEFT);
-        $content .= str_replace("-", "", $this->std->dataemissao);
-        $content .= $this->std->tributacao;
-        $content .= $this->std->status;
-        $content .= ($this->std->issretido) ? 'S' : 'N';
-        $content .= $this->formatValor($this->std->valorservicos, 2, 15);
-        $content .= $this->formatValor($this->std->valordeducoes, 2, 15);
-        $content .= str_pad($this->std->codigoservico, 5, '0', STR_PAD_LEFT);
-        $content .= $tomtipodoc;
-        $content .= str_pad($tomdoc, 14, '0', STR_PAD_LEFT);
-        if ($inttipodoc != '3') {
-            $content .= $inttipodoc;
-            $content .= str_pad($intdoc, 14, '0', STR_PAD_LEFT);
-            $content .= ($this->std->intermediario->issretido) ? 'S' : 'N';
-        }
-        $signature = base64_encode($this->certificate->sign($content, OPENSSL_ALGO_SHA1));
-        return $signature;
-    }
-    
-    private function formatValor($value, $dec, $length)
-    {
-        return str_pad(
-            str_replace(['.', ','], '', number_format($value, $dec)),
-            $length,
-            '0',
-            STR_PAD_LEFT
+        $id = $this->std->identificacaorps;
+        $rps = $this->dom->createElement('nfse:Rps');
+        $node = $this->dom->createElement('nfse:IdentificacaoRps');
+        $this->dom->addChild(
+            $node,
+            "nfse:Numero",
+            $id->numero,
+            true
         );
+        $this->dom->addChild(
+            $node,
+            "nfse:Serie",
+            $id->serie,
+            true
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:Tipo",
+            $id->tipo,
+            true
+        );
+        $rps->appendChild($node);
+        $this->dom->addChild(
+            $rps,
+            "nfse:DataEmissao",
+            $this->std->dataemissao,
+            true
+        );
+        $this->dom->addChild(
+            $rps,
+            "nfse:Status",
+            $this->std->status,
+            true
+        );
+        $parent->appendChild($rps);
+    }
+
+    /**
+     * Includes prestador
+     * @param DOMNode $parent
+     * @return void
+     */
+    protected function addPrestador(&$parent)
+    {
+        if (!isset($this->config)) {
+            return;
+        }
+        $node = $this->dom->createElement('nfse:Prestador');
+        $cpfcnpj = $this->dom->createElement('nfse:CpfCnpj');
+        $this->dom->addChild(
+            $cpfcnpj,
+            "nfse:Cnpj",
+            !empty($this->config->cnpj) ? $this->config->cnpj : null,
+            false
+        );
+        $this->dom->addChild(
+            $cpfcnpj,
+            "nfse:Cpf",
+            !empty($this->config->cpf) ? $this->config->cpf : null,
+            false
+        );
+        $node->appendChild($cpfcnpj);
+        $this->dom->addChild(
+            $node,
+            "nfse:InscricaoMunicipal",
+            $this->config->im,
+            true
+        );
+        $parent->appendChild($node);
+    }
+
+    /**
+     * Includes Servico TAG in parent NODE
+     * @param DOMNode $parent
+     */
+    protected function addServico(&$parent)
+    {
+        $serv = $this->std->servico;
+        $val = $this->std->servico->valores;
+        $node = $this->dom->createElement('nfse:Servico');
+        $valnode = $this->dom->createElement('nfse:Valores');
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorServicos",
+            number_format($val->valorservicos, 2, '.', ''),
+            true
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorDeducoes",
+            isset($val->valordeducoes) ? number_format($val->valordeducoes, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorPis",
+            isset($val->valorpis) ? number_format($val->valorpis, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorCofins",
+            isset($val->valorcofins) ? number_format($val->valorcofins, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorInss",
+            isset($val->valorinss) ? number_format($val->valorinss, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorIr",
+            isset($val->valorir) ? number_format($val->valorir, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorCsll",
+            isset($val->valorcsll) ? number_format($val->valorcsll, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:OutrasRetencoes",
+            isset($val->outrasretencoes) ? number_format($val->outrasretencoes, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:ValorIss",
+            isset($val->valoriss) ? number_format($val->valoriss, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:Aliquota",
+            isset($val->aliquota) ? $val->aliquota : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:DescontoIncondicionado",
+            isset($val->descontoincondicionado) ? number_format($val->descontoincondicionado, 2, '.', '') : null,
+            false
+        );
+        $this->dom->addChild(
+            $valnode,
+            "nfse:DescontoCondicionado",
+            isset($val->descontocondicionado) ? number_format($val->descontocondicionado, 2, '.', '') : null,
+            false
+        );
+        $node->appendChild($valnode);
+        $this->dom->addChild(
+            $node,
+            "nfse:IssRetido",
+            $serv->issretido,
+            true
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:ResponsavelRetencao",
+            isset($serv->responsavelretencao) ? $serv->responsavelretencao : null,
+            false
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:ItemListaServico",
+            $serv->itemlistaservico,
+            true
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:CodigoCnae",
+            isset($serv->codigocnae) ? $serv->codigocnae : null,
+            false
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:CodigoTributacaoMunicipio",
+            isset($serv->codigotributacaomunicipio) ? $serv->codigotributacaomunicipio : null,
+            false
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:Discriminacao",
+            $serv->discriminacao,
+            true
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:CodigoMunicipio",
+            $serv->codigomunicipio,
+            true
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:CodigoPais",
+            isset($serv->codigopais) ? $serv->codigopais : null,
+            false
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:ExigibilidadeISS",
+            $serv->exigibilidadeiss,
+            true
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:MunicipioIncidencia",
+            isset($serv->municipioincidencia) ? $serv->municipioincidencia : null,
+            false
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:NumeroProcesso",
+            isset($serv->numeroprocesso) ? $serv->numeroprocesso : null,
+            false
+        );
+        $parent->appendChild($node);
+    }
+
+    /**
+     * Includes Tomador TAG in parent NODE
+     * @param DOMNode $parent
+     */
+    protected function addTomador(&$parent)
+    {
+        if (!isset($this->std->tomador)) {
+            return;
+        }
+        $tom = $this->std->tomador;
+
+
+        $node = $this->dom->createElement('nfse:Tomador');
+        $ide = $this->dom->createElement('nfse:IdentificacaoTomador');
+        $cpfcnpj = $this->dom->createElement('nfse:CpfCnpj');
+        if (isset($tom->cnpj)) {
+            $this->dom->addChild(
+                $cpfcnpj,
+                "nfse:Cnpj",
+                $tom->cnpj,
+                true
+            );
+        } else {
+            $this->dom->addChild(
+                $cpfcnpj,
+                "nfse:Cpf",
+                $tom->cpf,
+                true
+            );
+        }
+        $ide->appendChild($cpfcnpj);
+        $this->dom->addChild(
+            $ide,
+            "nfse:InscricaoMunicipal",
+            isset($tom->inscricaomunicipal) ? $tom->inscricaomunicipal : null,
+            false
+        );
+        $node->appendChild($ide);
+        $this->dom->addChild(
+            $node,
+            "nfse:RazaoSocial",
+            $tom->razaosocial,
+            true
+        );
+        if (!empty($this->std->tomador->endereco)) {
+            $end = $this->std->tomador->endereco;
+            $endereco = $this->dom->createElement('nfse:Endereco');
+            $this->dom->addChild(
+                $endereco,
+                "nfse:Endereco",
+                $end->endereco,
+                true
+            );
+            $this->dom->addChild(
+                $endereco,
+                "nfse:Numero",
+                $end->numero,
+                true
+            );
+            $this->dom->addChild(
+                $endereco,
+                "nfse:Complemento",
+                isset($end->complemento) ? $end->complemento : null,
+                false
+            );
+            $this->dom->addChild(
+                $endereco,
+                "nfse:Bairro",
+                $end->bairro,
+                true
+            );
+            $this->dom->addChild(
+                $endereco,
+                "nfse:CodigoMunicipio",
+                $end->codigomunicipio,
+                true
+            );
+            $this->dom->addChild(
+                $endereco,
+                "nfse:Uf",
+                $end->uf,
+                true
+            );
+            $this->dom->addChild(
+                $endereco,
+                "nfse:CodigoPais",
+                isset($end->codigopais) ? $end->codigopais : null,
+                false
+            );
+            $this->dom->addChild(
+                $endereco,
+                "nfse:Cep",
+                $end->cep,
+                true
+            );
+            $node->appendChild($endereco);
+        }
+        if (!empty($tom->telefone) || !empty($tom->email)) {
+            $contato = $this->dom->createElement('nfse:Contato');
+            $this->dom->addChild(
+                $contato,
+                "nfse:Telefone",
+                isset($tom->telefone) ? $tom->telefone : null,
+                false
+            );
+            $this->dom->addChild(
+                $contato,
+                "nfse:Email",
+                isset($tom->email) ? $tom->email : null,
+                false
+            );
+            $node->appendChild($contato);
+        }
+        $parent->appendChild($node);
+    }
+
+    /**
+     * Includes Intermediario TAG in parent NODE
+     * @param DOMNode $parent
+     */
+    protected function addIntermediario(&$parent)
+    {
+        if (!isset($this->std->intermediarioservico)) {
+            return;
+        }
+        $int = $this->std->intermediarioservico;
+        $node = $this->dom->createElement('nfse:Intermediario');
+        $ide = $this->dom->createElement('nfse:IdentificacaoIntermediario');
+        $cpfcnpj = $this->dom->createElement('nfse:CpfCnpj');
+        if (isset($int->cnpj)) {
+            $this->dom->addChild(
+                $cpfcnpj,
+                "nfse:Cnpj",
+                $int->cnpj,
+                true
+            );
+        } else {
+            $this->dom->addChild(
+                $cpfcnpj,
+                "nfse:Cpf",
+                $int->cpf,
+                true
+            );
+        }
+        $ide->appendChild($cpfcnpj);
+        $this->dom->addChild(
+            $ide,
+            "nfse:InscricaoMunicipal",
+            $int->inscricaomunicipal,
+            false
+        );
+        $node->appendChild($ide);
+        $this->dom->addChild(
+            $node,
+            "nfse:RazaoSocial",
+            $int->razaosocial,
+            true
+        );
+
+        $parent->appendChild($node);
+    }
+
+    /**
+     * Includes Construcao TAG in parent NODE
+     * @param DOMNode $parent
+     */
+    protected function addConstrucao(&$parent)
+    {
+        if (!isset($this->std->construcaocivil)) {
+            return;
+        }
+        $obra = $this->std->construcaocivil;
+        $node = $this->dom->createElement('nfse:ConstrucaoCivil');
+        $this->dom->addChild(
+            $node,
+            "nfse:CodigoObra",
+            isset($obra->codigoobra) ? $obra->codigoobra : null,
+            false
+        );
+        $this->dom->addChild(
+            $node,
+            "nfse:Art",
+            $obra->art,
+            true
+        );
+        $parent->appendChild($node);
     }
 }
