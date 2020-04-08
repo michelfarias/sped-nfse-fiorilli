@@ -78,6 +78,7 @@ try {
     $std->tomador = new \stdClass(); //
     $std->tomador->cnpj = "04604742000187"; //
     //$std->tomador->cpf = "12345678901"; //
+    
     $std->tomador->razaosocial = "Fulano de Tal"; // 
     $std->tomador->telefone = '123456789'; //
     $std->tomador->email = 'fulano@mail.com'; //

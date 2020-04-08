@@ -77,6 +77,7 @@ class Standardize
                 "O argumento passado não é um XML válido."
             );
         }
+        $xml = $this->removeNS($xml);
         $dom = new \DOMDocument('1.0', 'UTF-8');
         $dom->preserveWhiteSpace = false;
         $dom->formatOutput = false;
@@ -147,5 +148,30 @@ class Standardize
             $this->toStd($xml);
         }
         return json_decode($this->json, true);
+    }
+    
+    /**
+     * Remove all namespaces from XML
+     * @param string $xml
+     * @return string
+     */
+    public function removeNS($xml)
+    {
+        $sxe = new \SimpleXMLElement($xml);
+        $dom_sxe = dom_import_simplexml($sxe);
+        $dom = new \DOMDocument('1.0');
+        $dom_sxe = $dom->importNode($dom_sxe, true);
+        $dom_sxe = $dom->appendChild($dom_sxe);
+        $element = $dom->childNodes->item(0);
+        foreach ($sxe->getDocNamespaces() as $name => $uri) {
+            $element->removeAttributeNS($uri, $name);
+        }
+        $xml = $dom->saveXML();
+        if (stripos($xml, 'xmlns=') !== false) {
+            $xml = preg_replace('~[\s]+xmlns=[\'"].+?[\'"]~i', null, $xml);
+            $xml = preg_replace('~[\s]+xmlns:default=[\'"].+?[\'"]~i', null, $xml);
+        }
+        $xml = str_replace(['default:', 'ns4:'], '', $xml);
+        return $xml;
     }
 }
