@@ -197,7 +197,7 @@ class Tools
             . "<ws:{$operation}>"
             . "{$message}"
             . "<username>{$this->config->login}</username>"
-            . "<password>{$this->config->password}</password>"
+            . "<password>{$this->config->senha}</password>"
             . "</ws:{$operation}>"
             . "</soapenv:Body>"
             . "</soapenv:Envelope>";

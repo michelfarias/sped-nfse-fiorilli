@@ -83,7 +83,7 @@ $configArr = [
     'razao'    => 'Empresa Test Ltda',
     'tpamb'    => 2, //1-producao, 2-homologacao
     'login'    => '01001001000113',
-    'password' => '123456'
+    'senha' => '123456'
 ];
 $config = (object) $configArr;
 
