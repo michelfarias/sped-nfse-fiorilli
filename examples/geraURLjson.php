@@ -44,7 +44,7 @@ $muns = [
     ['ibge' => '1100023', 'mun' => 'Ariquemes', 'uf' => 'RO', 'url' => ''],
     ['ibge' => '1100098', 'mun' => 'Espigão D´Oeste', 'uf' => 'RO', 'url' => ''],
     ['ibge' => '1100114', 'mun' => 'Jaru', 'uf' => 'RO', 'url' => ''],
-    ['ibge' => '1100122', 'mun' => 'Ji-Paraná', 'uf' => 'RO', 'url' => ''],
+    ['ibge' => '1100122', 'mun' => 'Ji-Paraná', 'uf' => 'RO', 'url' => 'http://177.124.184.59:5660/IssWeb-ejb/IssWebWS/IssWebWS'],
     ['ibge' => '1100130', 'mun' => 'Machadinho D´Oeste', 'uf' => 'RO', 'url' => ''],
     ['ibge' => '1100155', 'mun' => 'Ouro Preto do Oeste', 'uf' => 'RO', 'url' => ''],
     ['ibge' => '4315313', 'mun' => 'Quatro Irmãos', 'uf' => 'RS', 'url' => ''],

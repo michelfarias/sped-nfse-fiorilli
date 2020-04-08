@@ -54,7 +54,7 @@ class Factory
         $this->dom = new Dom('1.0', 'UTF-8');
         $this->dom->preserveWhiteSpace = false;
         $this->dom->formatOutput = false;
-        $this->rps = $this->dom->createElementNS('http://www.abrasf.org.br/nfse.xsd', 'nfse:Rps');
+        $this->rps = $this->dom->createElement('Rps');
     }
 
     /**
@@ -77,7 +77,7 @@ class Factory
         if (!empty($this->std->identificacaorps->numero)) {
             $num = $this->std->identificacaorps->numero;
         }
-        $infRps = $this->dom->createElement('nfse:InfDeclaracaoPrestacaoServico');
+        $infRps = $this->dom->createElement('InfDeclaracaoPrestacaoServico');
         $att = $this->dom->createAttribute('Id');
         $att->value = "rps{$num}";
         $infRps->appendChild($att);
@@ -86,7 +86,7 @@ class Factory
 
         $this->dom->addChild(
             $infRps,
-            "nfse:Competencia",
+            "Competencia",
             $this->std->competencia,
             true
         );
@@ -99,19 +99,19 @@ class Factory
 
         $this->dom->addChild(
             $infRps,
-            "nfse:RegimeEspecialTributacao",
+            "RegimeEspecialTributacao",
             $this->std->regimeespecialtributacao,
-            true
+            false
         );
         $this->dom->addChild(
             $infRps,
-            "nfse:OptanteSimplesNacional",
+            "OptanteSimplesNacional",
             $this->std->optantesimplesnacional,
             true
         );
         $this->dom->addChild(
             $infRps,
-            "nfse:IncentivoFiscal",
+            "IncentivoFiscal",
             $this->std->incentivofiscal,
             true
         );
@@ -130,36 +130,36 @@ class Factory
             return;
         }
         $id = $this->std->identificacaorps;
-        $rps = $this->dom->createElement('nfse:Rps');
-        $node = $this->dom->createElement('nfse:IdentificacaoRps');
+        $rps = $this->dom->createElement('Rps');
+        $node = $this->dom->createElement('IdentificacaoRps');
         $this->dom->addChild(
             $node,
-            "nfse:Numero",
+            "Numero",
             $id->numero,
             true
         );
         $this->dom->addChild(
             $node,
-            "nfse:Serie",
+            "Serie",
             $id->serie,
             true
         );
         $this->dom->addChild(
             $node,
-            "nfse:Tipo",
+            "Tipo",
             $id->tipo,
             true
         );
         $rps->appendChild($node);
         $this->dom->addChild(
             $rps,
-            "nfse:DataEmissao",
+            "DataEmissao",
             $this->std->dataemissao,
             true
         );
         $this->dom->addChild(
             $rps,
-            "nfse:Status",
+            "Status",
             $this->std->status,
             true
         );
@@ -176,24 +176,24 @@ class Factory
         if (!isset($this->config)) {
             return;
         }
-        $node = $this->dom->createElement('nfse:Prestador');
-        $cpfcnpj = $this->dom->createElement('nfse:CpfCnpj');
+        $node = $this->dom->createElement('Prestador');
+        $cpfcnpj = $this->dom->createElement('CpfCnpj');
         $this->dom->addChild(
             $cpfcnpj,
-            "nfse:Cnpj",
+            "Cnpj",
             !empty($this->config->cnpj) ? $this->config->cnpj : null,
             false
         );
         $this->dom->addChild(
             $cpfcnpj,
-            "nfse:Cpf",
+            "Cpf",
             !empty($this->config->cpf) ? $this->config->cpf : null,
             false
         );
         $node->appendChild($cpfcnpj);
         $this->dom->addChild(
             $node,
-            "nfse:InscricaoMunicipal",
+            "InscricaoMunicipal",
             $this->config->im,
             true
         );
@@ -208,144 +208,144 @@ class Factory
     {
         $serv = $this->std->servico;
         $val = $this->std->servico->valores;
-        $node = $this->dom->createElement('nfse:Servico');
-        $valnode = $this->dom->createElement('nfse:Valores');
+        $node = $this->dom->createElement('Servico');
+        $valnode = $this->dom->createElement('Valores');
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorServicos",
+            "ValorServicos",
             number_format($val->valorservicos, 2, '.', ''),
             true
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorDeducoes",
+            "ValorDeducoes",
             isset($val->valordeducoes) ? number_format($val->valordeducoes, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorPis",
+            "ValorPis",
             isset($val->valorpis) ? number_format($val->valorpis, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorCofins",
+            "ValorCofins",
             isset($val->valorcofins) ? number_format($val->valorcofins, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorInss",
+            "ValorInss",
             isset($val->valorinss) ? number_format($val->valorinss, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorIr",
+            "ValorIr",
             isset($val->valorir) ? number_format($val->valorir, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorCsll",
+            "ValorCsll",
             isset($val->valorcsll) ? number_format($val->valorcsll, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:OutrasRetencoes",
+            "OutrasRetencoes",
             isset($val->outrasretencoes) ? number_format($val->outrasretencoes, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:ValorIss",
+            "ValorIss",
             isset($val->valoriss) ? number_format($val->valoriss, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:Aliquota",
+            "Aliquota",
             isset($val->aliquota) ? $val->aliquota : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:DescontoIncondicionado",
+            "DescontoIncondicionado",
             isset($val->descontoincondicionado) ? number_format($val->descontoincondicionado, 2, '.', '') : null,
             false
         );
         $this->dom->addChild(
             $valnode,
-            "nfse:DescontoCondicionado",
+            "DescontoCondicionado",
             isset($val->descontocondicionado) ? number_format($val->descontocondicionado, 2, '.', '') : null,
             false
         );
         $node->appendChild($valnode);
         $this->dom->addChild(
             $node,
-            "nfse:IssRetido",
+            "IssRetido",
             $serv->issretido,
             true
         );
         $this->dom->addChild(
             $node,
-            "nfse:ResponsavelRetencao",
+            "ResponsavelRetencao",
             isset($serv->responsavelretencao) ? $serv->responsavelretencao : null,
             false
         );
         $this->dom->addChild(
             $node,
-            "nfse:ItemListaServico",
+            "ItemListaServico",
             $serv->itemlistaservico,
             true
         );
         $this->dom->addChild(
             $node,
-            "nfse:CodigoCnae",
+            "CodigoCnae",
             isset($serv->codigocnae) ? $serv->codigocnae : null,
             false
         );
         $this->dom->addChild(
             $node,
-            "nfse:CodigoTributacaoMunicipio",
+            "CodigoTributacaoMunicipio",
             isset($serv->codigotributacaomunicipio) ? $serv->codigotributacaomunicipio : null,
             false
         );
         $this->dom->addChild(
             $node,
-            "nfse:Discriminacao",
+            "Discriminacao",
             $serv->discriminacao,
             true
         );
         $this->dom->addChild(
             $node,
-            "nfse:CodigoMunicipio",
+            "CodigoMunicipio",
             $serv->codigomunicipio,
             true
         );
         $this->dom->addChild(
             $node,
-            "nfse:CodigoPais",
+            "CodigoPais",
             isset($serv->codigopais) ? $serv->codigopais : null,
             false
         );
         $this->dom->addChild(
             $node,
-            "nfse:ExigibilidadeISS",
+            "ExigibilidadeISS",
             $serv->exigibilidadeiss,
             true
         );
         $this->dom->addChild(
             $node,
-            "nfse:MunicipioIncidencia",
+            "MunicipioIncidencia",
             isset($serv->municipioincidencia) ? $serv->municipioincidencia : null,
             false
         );
         $this->dom->addChild(
             $node,
-            "nfse:NumeroProcesso",
+            "NumeroProcesso",
             isset($serv->numeroprocesso) ? $serv->numeroprocesso : null,
             false
         );
@@ -364,20 +364,20 @@ class Factory
         $tom = $this->std->tomador;
 
 
-        $node = $this->dom->createElement('nfse:Tomador');
-        $ide = $this->dom->createElement('nfse:IdentificacaoTomador');
-        $cpfcnpj = $this->dom->createElement('nfse:CpfCnpj');
+        $node = $this->dom->createElement('Tomador');
+        $ide = $this->dom->createElement('IdentificacaoTomador');
+        $cpfcnpj = $this->dom->createElement('CpfCnpj');
         if (isset($tom->cnpj)) {
             $this->dom->addChild(
                 $cpfcnpj,
-                "nfse:Cnpj",
+                "Cnpj",
                 $tom->cnpj,
                 true
             );
         } else {
             $this->dom->addChild(
                 $cpfcnpj,
-                "nfse:Cpf",
+                "Cpf",
                 $tom->cpf,
                 true
             );
@@ -385,81 +385,81 @@ class Factory
         $ide->appendChild($cpfcnpj);
         $this->dom->addChild(
             $ide,
-            "nfse:InscricaoMunicipal",
+            "InscricaoMunicipal",
             isset($tom->inscricaomunicipal) ? $tom->inscricaomunicipal : null,
             false
         );
         $node->appendChild($ide);
         $this->dom->addChild(
             $node,
-            "nfse:RazaoSocial",
+            "RazaoSocial",
             $tom->razaosocial,
             true
         );
         if (!empty($this->std->tomador->endereco)) {
             $end = $this->std->tomador->endereco;
-            $endereco = $this->dom->createElement('nfse:Endereco');
+            $endereco = $this->dom->createElement('Endereco');
             $this->dom->addChild(
                 $endereco,
-                "nfse:Endereco",
+                "Endereco",
                 $end->endereco,
                 true
             );
             $this->dom->addChild(
                 $endereco,
-                "nfse:Numero",
+                "Numero",
                 $end->numero,
                 true
             );
             $this->dom->addChild(
                 $endereco,
-                "nfse:Complemento",
+                "Complemento",
                 isset($end->complemento) ? $end->complemento : null,
                 false
             );
             $this->dom->addChild(
                 $endereco,
-                "nfse:Bairro",
+                "Bairro",
                 $end->bairro,
                 true
             );
             $this->dom->addChild(
                 $endereco,
-                "nfse:CodigoMunicipio",
+                "CodigoMunicipio",
                 $end->codigomunicipio,
                 true
             );
             $this->dom->addChild(
                 $endereco,
-                "nfse:Uf",
+                "Uf",
                 $end->uf,
                 true
             );
             $this->dom->addChild(
                 $endereco,
-                "nfse:CodigoPais",
+                "CodigoPais",
                 isset($end->codigopais) ? $end->codigopais : null,
                 false
             );
             $this->dom->addChild(
                 $endereco,
-                "nfse:Cep",
+                "Cep",
                 $end->cep,
                 true
             );
             $node->appendChild($endereco);
         }
         if (!empty($tom->telefone) || !empty($tom->email)) {
-            $contato = $this->dom->createElement('nfse:Contato');
+            $contato = $this->dom->createElement('Contato');
             $this->dom->addChild(
                 $contato,
-                "nfse:Telefone",
+                "Telefone",
                 isset($tom->telefone) ? $tom->telefone : null,
                 false
             );
             $this->dom->addChild(
                 $contato,
-                "nfse:Email",
+                "Email",
                 isset($tom->email) ? $tom->email : null,
                 false
             );
@@ -478,20 +478,20 @@ class Factory
             return;
         }
         $int = $this->std->intermediarioservico;
-        $node = $this->dom->createElement('nfse:Intermediario');
-        $ide = $this->dom->createElement('nfse:IdentificacaoIntermediario');
-        $cpfcnpj = $this->dom->createElement('nfse:CpfCnpj');
+        $node = $this->dom->createElement('Intermediario');
+        $ide = $this->dom->createElement('IdentificacaoIntermediario');
+        $cpfcnpj = $this->dom->createElement('CpfCnpj');
         if (isset($int->cnpj)) {
             $this->dom->addChild(
                 $cpfcnpj,
-                "nfse:Cnpj",
+                "Cnpj",
                 $int->cnpj,
                 true
             );
         } else {
             $this->dom->addChild(
                 $cpfcnpj,
-                "nfse:Cpf",
+                "Cpf",
                 $int->cpf,
                 true
             );
@@ -499,14 +499,14 @@ class Factory
         $ide->appendChild($cpfcnpj);
         $this->dom->addChild(
             $ide,
-            "nfse:InscricaoMunicipal",
+            "InscricaoMunicipal",
             $int->inscricaomunicipal,
             false
         );
         $node->appendChild($ide);
         $this->dom->addChild(
             $node,
-            "nfse:RazaoSocial",
+            "RazaoSocial",
             $int->razaosocial,
             true
         );
@@ -524,16 +524,16 @@ class Factory
             return;
         }
         $obra = $this->std->construcaocivil;
-        $node = $this->dom->createElement('nfse:ConstrucaoCivil');
+        $node = $this->dom->createElement('ConstrucaoCivil');
         $this->dom->addChild(
             $node,
-            "nfse:CodigoObra",
+            "CodigoObra",
             isset($obra->codigoobra) ? $obra->codigoobra : null,
             false
         );
         $this->dom->addChild(
             $node,
-            "nfse:Art",
+            "Art",
             $obra->art,
             true
         );
