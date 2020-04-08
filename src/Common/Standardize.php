@@ -171,7 +171,7 @@ class Standardize
             $xml = preg_replace('~[\s]+xmlns=[\'"].+?[\'"]~i', null, $xml);
             $xml = preg_replace('~[\s]+xmlns:default=[\'"].+?[\'"]~i', null, $xml);
         }
-        $xml = str_replace(['default:', 'ns4:'], '', $xml);
+        $xml = str_replace(['default:', 'ns2:'], '', $xml);
         return $xml;
     }
 }
