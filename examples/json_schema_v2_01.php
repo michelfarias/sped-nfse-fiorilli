@@ -56,8 +56,8 @@ $jsonSchema = '{
             "pattern": "^([0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]))$"
         },
         "regimeespecialtributacao": {
-            "required": true,
-            "type": "integer",
+            "required": false,
+            "type": ["integer","null"],
             "pattern": "^[1-6]{1}$"
         },
         "optantesimplesnacional": {
@@ -324,7 +324,7 @@ $std->identificacaorps = new \stdClass(); //false
 $std->dataemissao = '2018-10-31'; //false
 $std->status = 1;  // true 1 – Normal  2 – Cancelado
 $std->competencia = '2018-10-01'; //true
-$std->regimeespecialtributacao = 1; 
+$std->regimeespecialtributacao = null; 
 $std->optantesimplesnacional = 1; // true 1 - SIM 2 - Não
 $std->incentivofiscal = 2; // true 1 - SIM 2 - Não
 

@@ -60,15 +60,15 @@ class Tools
     protected function buildPrestador()
     {
         if (!empty($this->config->cpf)) {
-            $this->cpfcnpjtag = "<nfse:CpfCnpj><nfse:Cpf>{$this->config->cpf}</nfse:Cpf></nfse:CpfCnpj>";
+            $this->cpfcnpjtag = "<CpfCnpj><Cpf>{$this->config->cpf}</Cpf></CpfCnpj>";
         } elseif (!empty($this->config->cnpj)) {
-            $this->cpfcnpjtag = "<nfse:CpfCnpj><nfse:Cnpj>{$this->config->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
+            $this->cpfcnpjtag = "<CpfCnpj><Cnpj>{$this->config->cnpj}</Cnpj></CpfCnpj>";
         }
-        $this->imtag = "<nfse:InscricaoMunicipal>{$this->config->im}</nfse:InscricaoMunicipal>";
-        $this->prestador = "<nfse:Prestador>"
+        $this->imtag = "<InscricaoMunicipal>{$this->config->im}</InscricaoMunicipal>";
+        $this->prestador = "<Prestador>"
             . $this->cpfcnpjtag
             . $this->imtag
-            . "</nfse:Prestador>";
+            . "</Prestador>";
     }
 
     /**
@@ -135,7 +135,7 @@ class Tools
         $msgSize = strlen($request);
         $action = "{$this->wsobj->soapns}$operation";
         $parameters = [
-            "Accept-Encoding: gzip,deflate",
+            //"Accept-Encoding: gzip,deflate",
             "Content-Type: text/xml;charset=UTF-8",
             "SOAPAction: {$action}",
             "Content-length: $msgSize"
@@ -191,8 +191,7 @@ class Tools
     {
         $env = "<soapenv:Envelope "
             . "xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" "
-            . "xmlns:ws=\"{$this->wsobj->soapns}\" "
-            . "xmlns:nfse=\"{$this->wsobj->msgns}\">"
+            . "xmlns:ws=\"{$this->wsobj->soapns}\">"
             . "<soapenv:Header/>"
             . "<soapenv:Body>"
             . "<ws:{$operation}>"

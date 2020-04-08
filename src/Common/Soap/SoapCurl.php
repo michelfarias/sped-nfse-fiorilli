@@ -71,6 +71,7 @@ class SoapCurl extends SoapBase implements SoapInterface
                     curl_setopt($oCurl, CURLOPT_CAINFO, $this->casefaz);
                 }
             }
+            curl_setopt($oCurl, CURLOPT_ENCODING, 'gzip,deflate');
             curl_setopt($oCurl, CURLOPT_SSLVERSION, $this->soapprotocol);
             curl_setopt($oCurl, CURLOPT_SSLCERT, $this->tempdir . $this->certfile);
             curl_setopt($oCurl, CURLOPT_SSLKEY, $this->tempdir . $this->prifile);

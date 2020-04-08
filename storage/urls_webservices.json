@@ -327,7 +327,7 @@
         "municipio": "Ji-Paran\u00e1",
         "uf": "RO",
         "homologacao": "http:\/\/fi1.fiorilli.com.br:5663\/IssWeb-ejb\/IssWebWS\/IssWebWS",
-        "producao": "",
+        "producao": "http:\/\/177.124.184.59:5660\/IssWeb-ejb\/IssWebWS\/IssWebWS",
         "version": "2.01",
         "msgns": "http:\/\/www.abrasf.org.br\/nfse.xsd",
         "soapns": "http:\/\/ws.issweb.fiorilli.com.br\/"

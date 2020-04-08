@@ -49,9 +49,9 @@ class Tools extends BaseTools
     {
         $operation = 'cancelarNfse';
         
-        $content = "<nfse:CancelarNfseEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
+        $content = "<CancelarNfseEnvio xmlns=\"{$this->wsobj->msgns}\">"
             . $this->pedidoCancelamento($numero, $codigo_cancelamento)
-            . "</nfse:CancelarNfseEnvio>";
+            . "</CancelarNfseEnvio>";
         
         $content = Signer::sign(
             $this->certificate,
@@ -62,7 +62,7 @@ class Tools extends BaseTools
             [false, false, null, null],
             'Pedido'
         );
-        //file_put_contents("/var/www/sped/sped-nfse-fiorilli/local/fixtures/{$operation}_send.xml", $content);
+        file_put_contents("/var/www/sped/sped-nfse-fiorilli/local/fixtures/{$operation}_send.xml", $content);
         Validator::isValid($content, $this->xsdpath);
         return $this->send($content, $operation);
     }
@@ -76,10 +76,10 @@ class Tools extends BaseTools
     {
         $operation = 'consultarLoteRps';
         
-        $content = "<nfse:ConsultarLoteRpsEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
+        $content = "<ConsultarLoteRpsEnvio xmlns=\"{$this->wsobj->msgns}\">"
             . $this->prestador
-            . "<nfse:Protocolo>{$protocolo}</nfse:Protocolo>"
-            . "</nfse:ConsultarLoteRpsEnvio>";
+            . "<Protocolo>{$protocolo}</Protocolo>"
+            . "</ConsultarLoteRpsEnvio>";
         
         Validator::isValid($content, $this->xsdpath);
         return $this->send($content, $operation);
@@ -100,13 +100,13 @@ class Tools extends BaseTools
         
         $pagina = (int) (!empty($pagina) && is_numeric($pagina)) ? $pagina : 1;
         
-        $content = "<nfse:ConsultarNfseFaixaEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
+        $content = "<ConsultarNfseFaixaEnvio xmlns=\"{$this->wsobj->msgns}\">"
             . $this->prestador
-            . "<nfse:Faixa>"
-            . "<nfse:NumeroNfseInicial>{$inicial}</nfse:NumeroNfseInicial>"
-            . "<nfse:NumeroNfseFinal>{$final}</nfse:NumeroNfseFinal>"
-            . "</nfse:Faixa><nfse:Pagina>{$pagina}</nfse:Pagina>"
-            . "</nfse:ConsultarNfseFaixaEnvio>";
+            . "<Faixa>"
+            . "<NumeroNfseInicial>{$inicial}</NumeroNfseInicial>"
+            . "<NumeroNfseFinal>{$final}</NumeroNfseFinal>"
+            . "</Faixa><Pagina>{$pagina}</Pagina>"
+            . "</ConsultarNfseFaixaEnvio>";
 
         Validator::isValid($content, $this->xsdpath);
         return $this->send($content, $operation);
@@ -123,14 +123,14 @@ class Tools extends BaseTools
     {
         $operation = 'consultarNfsePorRps';
         
-        $content = "<nfse:ConsultarNfseRpsEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
-            . "<nfse:IdentificacaoRps>"
-            . "<nfse:Numero>{$numero}</nfse:Numero>"
-            . "<nfse:Serie>{$serie}</nfse:Serie>"
-            . "<nfse:Tipo>{$tipo}</nfse:Tipo>"
-            . "</nfse:IdentificacaoRps>"
+        $content = "<ConsultarNfseRpsEnvio xmlns=\"{$this->wsobj->msgns}\">"
+            . "<IdentificacaoRps>"
+            . "<Numero>{$numero}</Numero>"
+            . "<Serie>{$serie}</Serie>"
+            . "<Tipo>{$tipo}</Tipo>"
+            . "</IdentificacaoRps>"
             . $this->prestador
-            . "</nfse:ConsultarNfseRpsEnvio>";
+            . "</ConsultarNfseRpsEnvio>";
             
         Validator::isValid($content, $this->xsdpath);
         return $this->send($content, $operation);
@@ -145,7 +145,7 @@ class Tools extends BaseTools
     {
         $operation = 'consultarNfseServicoPrestado';
         $tags = $this->tags($parameters);
-        $content = "<nfse:ConsultarNfseServicoPrestadoEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
+        $content = "<ConsultarNfseServicoPrestadoEnvio xmlns=\"{$this->wsobj->msgns}\">"
             . $this->prestador
             . $tags->numero
             . $tags->periodo
@@ -153,7 +153,7 @@ class Tools extends BaseTools
             . $tags->tomador
             . $tags->intermediario
             . $tags->pagina
-            . "</nfse:ConsultarNfseServicoPrestadoEnvio>";
+            . "</ConsultarNfseServicoPrestadoEnvio>";
             
         Validator::isValid($content, $this->xsdpath);
         return $this->send($content, $operation);
@@ -169,11 +169,11 @@ class Tools extends BaseTools
     {
         $operation = 'consultarNfseServicoTomado';
         $tags = $this->tags($parameters);
-        $content = "<nfse:ConsultarNfseServicoTomadoEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
-            . "<nfse:Consulente>"
+        $content = "<ConsultarNfseServicoTomadoEnvio xmlns=\"{$this->wsobj->msgns}\">"
+            . "<Consulente>"
             . $this->cpfcnpjtag
             . $this->imtag
-            . "</nfse:Consulente>"
+            . "</Consulente>"
             . $tags->numero
             . $tags->periodo
             . $tags->competencia
@@ -181,7 +181,7 @@ class Tools extends BaseTools
             . $tags->tomador
             . $tags->intermediario
             . $tags->pagina
-            . "</nfse:ConsultarNfseServicoTomadoEnvio>";
+            . "</ConsultarNfseServicoTomadoEnvio>";
         
         Validator::isValid($content, $this->xsdpath);
         return $this->send($content, $operation);
@@ -199,9 +199,9 @@ class Tools extends BaseTools
             $rps->config($this->config);
         }
         $tagrps = $rps->render();
-        $content = "<nfse:GerarNfseEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
+        $content = "<GerarNfseEnvio xmlns=\"{$this->wsobj->msgns}\">"
             . $tagrps
-            . "</nfse:GerarNfseEnvio>";
+            . "</GerarNfseEnvio>";
         
         $content = Signer::sign(
             $this->certificate,
@@ -248,17 +248,17 @@ class Tools extends BaseTools
         //cria um id unico
         $id = $this->numericUuid();
         
-        $content = "<nfse:EnviarLoteRpsEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
-            . "<nfse:LoteRps Id=\"$id\" versao=\"{$this->wsobj->version}\">"
-            . "<nfse:NumeroLote>$id</nfse:NumeroLote>"
+        $content = "<EnviarLoteRpsEnvio xmlns=\"{$this->wsobj->msgns}\">"
+            . "<LoteRps Id=\"$id\" versao=\"{$this->wsobj->version}\">"
+            . "<NumeroLote>$id</NumeroLote>"
             . $this->cpfcnpjtag
             . $this->imtag
-            . "<nfse:QuantidadeRps>{$qtd}</nfse:QuantidadeRps>"
-            . "<nfse:ListaRps>"
+            . "<QuantidadeRps>{$qtd}</QuantidadeRps>"
+            . "<ListaRps>"
             . $tagrps
-            . "</nfse:ListaRps>"
-            . "</nfse:LoteRps>"
-            . "</nfse:EnviarLoteRpsEnvio>";
+            . "</ListaRps>"
+            . "</LoteRps>"
+            . "</EnviarLoteRpsEnvio>";
         
             
         $content = Signer::sign(
@@ -307,17 +307,17 @@ class Tools extends BaseTools
         //cria um id unico
         $id = $this->numericUuid();
         
-        $content = "<nfse:EnviarLoteRpsSincronoEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
-            . "<nfse:LoteRps Id=\"{$id}\" versao=\"{$this->wsobj->version}\">"
-            . "<nfse:NumeroLote>{$id}</nfse:NumeroLote>"
+        $content = "<EnviarLoteRpsSincronoEnvio xmlns=\"{$this->wsobj->msgns}\">"
+            . "<LoteRps Id=\"{$id}\" versao=\"{$this->wsobj->version}\">"
+            . "<NumeroLote>{$id}</NumeroLote>"
             . $this->cpfcnpjtag
             . $this->imtag
-            . "<nfse:QuantidadeRps>{$qtd}</nfse:QuantidadeRps>"
-            . "<nfse:ListaRps>"
+            . "<QuantidadeRps>{$qtd}</QuantidadeRps>"
+            . "<ListaRps>"
             . $tagrps
-            . "</nfse:ListaRps>"
-            . "</nfse:LoteRps>"
-            . "</nfse:EnviarLoteRpsSincronoEnvio>";
+            . "</ListaRps>"
+            . "</LoteRps>"
+            . "</EnviarLoteRpsSincronoEnvio>";
             
         $content = Signer::sign(
             $this->certificate,
@@ -351,12 +351,12 @@ class Tools extends BaseTools
         }
         $tagrps = $rps->render();
          
-        $content = "<nfse:SubstituirNfseEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
-            . "<nfse:SubstituicaoNfse Id=\"{$id}\">"
+        $content = "<SubstituirNfseEnvio xmlns=\"{$this->wsobj->msgns}\">"
+            . "<SubstituicaoNfse Id=\"{$id}\">"
             . $this->pedidoCancelamento($numero, $codigo_cancelamento)
             . $tagrps
-            . "</nfse:SubstituicaoNfse>"
-            . "</nfse:SubstituirNfseEnvio>";
+            . "</SubstituicaoNfse>"
+            . "</SubstituirNfseEnvio>";
         
             
         $content = Signer::sign(
@@ -408,17 +408,17 @@ class Tools extends BaseTools
         }
         $codigo_cancelamento = $codigo_cancelamento ?? 2;
         
-        return "<nfse:Pedido>"
-            . "<nfse:InfPedidoCancelamento Id=\"can{$numero}\">"
-            . "<nfse:IdentificacaoNfse>"
-            . "<nfse:Numero>{$numero}</nfse:Numero>"
+        return "<Pedido>"
+            . "<InfPedidoCancelamento Id=\"can{$numero}\">"
+            . "<IdentificacaoNfse>"
+            . "<Numero>{$numero}</Numero>"
             . $this->cpfcnpjtag
             . $this->imtag
-            . "<nfse:CodigoMunicipio>{$cmun}</nfse:CodigoMunicipio>"
-            . "</nfse:IdentificacaoNfse>"
-            . "<nfse:CodigoCancelamento>{$codigo_cancelamento}</nfse:CodigoCancelamento>"
-            . "</nfse:InfPedidoCancelamento>"
-            . "</nfse:Pedido>";
+            . "<CodigoMunicipio>{$cmun}</CodigoMunicipio>"
+            . "</IdentificacaoNfse>"
+            . "<CodigoCancelamento>{$codigo_cancelamento}</CodigoCancelamento>"
+            . "</InfPedidoCancelamento>"
+            . "</Pedido>";
     }
     
     /**
@@ -429,73 +429,73 @@ class Tools extends BaseTools
     protected function tags($parameters)
     {
         $resp = new \stdClass();
-        $resp->numero = !empty($parameters->numero) ? "<nfse:NumeroNfse>{$parameters->numero}</nfse:NumeroNfse>" : '';
+        $resp->numero = !empty($parameters->numero) ? "<NumeroNfse>{$parameters->numero}</NumeroNfse>" : '';
         
         $resp->periodo = '';
         if (!empty($parameters->periodo)) {
             $per = $parameters->periodo;
-            $resp->periodo = "<nfse:PeriodoEmissao>"
-            . "<nfse:DataInicial>{$per->inicial}</nfse:DataInicial>"
-            . "<nfse:DataFinal>{$per->final}</nfse:DataFinal>"
-            . "</nfse:PeriodoEmissao>";
+            $resp->periodo = "<PeriodoEmissao>"
+            . "<DataInicial>{$per->inicial}</DataInicial>"
+            . "<DataFinal>{$per->final}</DataFinal>"
+            . "</PeriodoEmissao>";
         }
         
         $resp->competencia = '';
         if (empty($resp->periodo)) {
             if (!empty($parameters->competencia)) {
                 $per = $parameters->competencia;
-                $resp->competencia = "<nfse:PeriodoCompetencia>"
-                    . "<nfse:DataInicial>{$per->inicial}</nfse:DataInicial>"
-                    . "<nfse:DataFinal>{$per->final}</nfse:DataFinal>"
-                    . "</nfse:PeriodoCompetencia>";
+                $resp->competencia = "<PeriodoCompetencia>"
+                    . "<DataInicial>{$per->inicial}</DataInicial>"
+                    . "<DataFinal>{$per->final}</DataFinal>"
+                    . "</PeriodoCompetencia>";
             }
         }
         
         $resp->tomador = '';
         if (!empty($parameters->tomador)) {
             $tom = $parameters->tomador;
-            $resp->tomador = "<nfse:Tomador>";
+            $resp->tomador = "<Tomador>";
             if (!empty($tom->cnpj)) {
-                $resp->tomador .= "<nfse:CpfCnpj><nfse:Cnpj>{$tom->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
+                $resp->tomador .= "<CpfCnpj><Cnpj>{$tom->cnpj}</Cnpj></CpfCnpj>";
             } elseif (!empty($tom->cpf)) {
-                $resp->tomador .= "<nfse:CpfCnpj><nfse:Cpf>{$tom->cpf}</nfse:Cpf></nfse:CpfCnpj>";
+                $resp->tomador .= "<CpfCnpj><Cpf>{$tom->cpf}</Cpf></CpfCnpj>";
             }
-            $resp->tomador .= !empty($tom->im) ? "<nfse:InscricaoMunicipal>{$tom->im}</nfse:InscricaoMunicipal>" : '';
-            $resp->tomador .= "</nfse:Tomador>";
+            $resp->tomador .= !empty($tom->im) ? "<InscricaoMunicipal>{$tom->im}</InscricaoMunicipal>" : '';
+            $resp->tomador .= "</Tomador>";
         }
         
         $resp->intermediario = '';
         if (!empty($parameters->intermediario)) {
             $int = $parameters->intermediario;
-            $resp->intermediario = "<nfse:Intermediario>";
+            $resp->intermediario = "<Intermediario>";
             if (!empty($int->cnpj)) {
-                $resp->intermediario .= "<nfse:CpfCnpj><nfse:Cnpj>{$int->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
+                $resp->intermediario .= "<CpfCnpj><Cnpj>{$int->cnpj}</Cnpj></CpfCnpj>";
             } elseif (!empty($int->cpf)) {
-                $resp->intermediario .= "<nfse:CpfCnpj><nfse:Cpf>{$int->cpf}</nfse:Cpf></nfse:CpfCnpj>";
+                $resp->intermediario .= "<CpfCnpj><Cpf>{$int->cpf}</Cpf></CpfCnpj>";
             }
             $resp->intermediario .= !empty($int->im)
-                ? "<nfse:InscricaoMunicipal>{$int->im}</nfse:InscricaoMunicipal>"
+                ? "<InscricaoMunicipal>{$int->im}</InscricaoMunicipal>"
                 : '';
-            $resp->intermediario .= "</nfse:Intermediario>";
+            $resp->intermediario .= "</Intermediario>";
         }
         
         $resp->prestador = '';
         if (!empty($parameters->prestador)) {
             $pres = $parameters->prestador;
-            $resp->prestador = "<nfse:Prestador>";
+            $resp->prestador = "<Prestador>";
             if (!empty($pres->cnpj)) {
-                $resp->prestador .= "<nfse:CpfCnpj><nfse:Cnpj>{$pres->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
+                $resp->prestador .= "<CpfCnpj><Cnpj>{$pres->cnpj}</Cnpj></CpfCnpj>";
             } elseif (!empty($pres->cpf)) {
-                $resp->prestador .= "<nfse:CpfCnpj><nfse:Cpf>{$pres->cpf}</nfse:Cpf></nfse:CpfCnpj>";
+                $resp->prestador .= "<CpfCnpj><Cpf>{$pres->cpf}</Cpf></CpfCnpj>";
             }
             $resp->prestador .= !empty($pres->im)
-                ? "<nfse:InscricaoMunicipal>{$pres->im}</nfse:InscricaoMunicipal>"
+                ? "<InscricaoMunicipal>{$pres->im}</InscricaoMunicipal>"
                 : '';
-            $resp->prestador .= "</nfse:Prestador>";
+            $resp->prestador .= "</Prestador>";
         }
         
         $pagina = (int) (!empty($parameters->pagina) && is_numeric($parameters->pagina)) ? $parameters->pagina : 1;
-        $resp->pagina = "<nfse:Pagina>{$pagina}</nfse:Pagina>";
+        $resp->pagina = "<Pagina>{$pagina}</Pagina>";
         
         return $resp;
     }
