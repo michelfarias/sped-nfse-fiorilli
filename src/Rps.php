@@ -58,6 +58,15 @@ class Rps implements RpsInterface
     }
     
     /**
+     * Config existe
+     * @return bool
+     */
+    public function hasConfig()
+    {
+        return !empty($this->config);
+    }
+    
+    /**
      * {@inheritdoc}
      */
     public function render(stdClass $rps = null)

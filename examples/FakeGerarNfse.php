@@ -104,7 +104,7 @@ try {
 
 
     $rps = new Rps($std);
-    $rps->config((object) $config);
+    //$rps->config((object) $config);
 
     $response = $tools->gerarNfse($rps);
 

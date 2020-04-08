@@ -36,6 +36,7 @@ class Tools
     protected $imtag;
     protected $prestador;
     protected $url;
+    protected $xsdpath;
 
     /**
      * Constructor
@@ -58,9 +59,9 @@ class Tools
     
     protected function buildPrestador()
     {
-        if (!empty($this->config->cpf)) {    
+        if (!empty($this->config->cpf)) {
             $this->cpfcnpjtag = "<nfse:CpfCnpj><nfse:Cpf>{$this->config->cpf}</nfse:Cpf></nfse:CpfCnpj>";
-        } elseif (!empty($this->config->cnpj)) {    
+        } elseif (!empty($this->config->cnpj)) {
             $this->cpfcnpjtag = "<nfse:CpfCnpj><nfse:Cnpj>{$this->config->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
         }
         $this->imtag = "<nfse:InscricaoMunicipal>{$this->config->im}</nfse:InscricaoMunicipal>";
@@ -117,7 +118,6 @@ class Tools
      * Send message to webservice
      * @param string $message
      * @param string $operation
-     * @param string $mode sincrono ou assincrono
      * @return string XML response from webservice
      */
     public function send($message, $operation)
@@ -140,14 +140,7 @@ class Tools
             "SOAPAction: {$action}",
             "Content-length: $msgSize"
         ];
-        if ($mode == 'assincrono') {
-            $parameters = [
-                "Accept-Encoding: gzip,deflate",
-                "Content-Type: application/soap+xml;charset=UTF-8",
-                "SOAPAction: \"{$action}\"",
-                "Content-length: $msgSize"
-            ];
-        }
+
         $response = (string) $this->soap->send(
             $operation,
             $this->url,
@@ -210,17 +203,14 @@ class Tools
             . "</soapenv:Body>"
             . "</soapenv:Envelope>";
 
-        header("Content-type: text/xml");
-        echo $env;
-        die;
         return $env;
     }
     
     /**
-     * 
+     *
      * @return string
      */
-    protected function numeric_uuid()
+    protected function numericUuid()
     {
         list($usec, $sec) = explode(" ", microtime());
         $num = round(((float)$usec + (float)$sec)*1000, 0);

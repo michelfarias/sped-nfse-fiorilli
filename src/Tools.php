@@ -42,21 +42,29 @@ class Tools extends BaseTools
     /**
      * Pedido de Cancelamento de uma NFSe
      * @param int $numero do rps
-     * @param int $codigo_cancelamento 
+     * @param int $codigo_cancelamento
      * @return string
      */
     public function cancelarNFSe($numero, $codigo_cancelamento = null)
     {
         $operation = 'cancelarNfse';
         
-        //cria um id unico
-        $id = $this->numeric_uuid();
-        
-        $message = "<nfse:CancelarNfseEnvio>"
-            . $this->pedido_cancelamento($id, $numero, $codigo_cancelamento)
+        $content = "<nfse:CancelarNfseEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
+            . $this->pedidoCancelamento($numero, $codigo_cancelamento)
             . "</nfse:CancelarNfseEnvio>";
         
-        $resp = $this->send($message, $operation);
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'InfPedidoCancelamento',
+            'Id',
+            OPENSSL_ALGO_SHA1,
+            [false, false, null, null],
+            'Pedido'
+        );
+        //file_put_contents("/var/www/sped/sped-nfse-fiorilli/local/fixtures/{$operation}_send.xml", $content);
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
 
     /**
@@ -68,18 +76,19 @@ class Tools extends BaseTools
     {
         $operation = 'consultarLoteRps';
         
-        $message = "<nfse:ConsultarLoteRpsEnvio>"
+        $content = "<nfse:ConsultarLoteRpsEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . $this->prestador
             . "<nfse:Protocolo>{$protocolo}</nfse:Protocolo>"
             . "</nfse:ConsultarLoteRpsEnvio>";
-            
-        $resp = $this->send($message, $operation);    
+        
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
 
     /**
      * Consulta NFSes por faixa
      * NOTA: até 50 por página
-     * 
+     *
      * @param int $inicial NFSe inicial
      * @param int $final   NFSe final
      * @param int $pagina
@@ -91,15 +100,16 @@ class Tools extends BaseTools
         
         $pagina = (int) (!empty($pagina) && is_numeric($pagina)) ? $pagina : 1;
         
-        $message = "<nfse:ConsultarNfseFaixaEnvio>"
+        $content = "<nfse:ConsultarNfseFaixaEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . $this->prestador
             . "<nfse:Faixa>"
             . "<nfse:NumeroNfseInicial>{$inicial}</nfse:NumeroNfseInicial>"
             . "<nfse:NumeroNfseFinal>{$final}</nfse:NumeroNfseFinal>"
             . "</nfse:Faixa><nfse:Pagina>{$pagina}</nfse:Pagina>"
             . "</nfse:ConsultarNfseFaixaEnvio>";
-            
-        $resp = $this->send($message, $operation);
+
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
     /**
@@ -113,7 +123,7 @@ class Tools extends BaseTools
     {
         $operation = 'consultarNfsePorRps';
         
-        $message = "<nfse:ConsultarNfseRpsEnvio>"
+        $content = "<nfse:ConsultarNfseRpsEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . "<nfse:IdentificacaoRps>"
             . "<nfse:Numero>{$numero}</nfse:Numero>"
             . "<nfse:Serie>{$serie}</nfse:Serie>"
@@ -122,7 +132,8 @@ class Tools extends BaseTools
             . $this->prestador
             . "</nfse:ConsultarNfseRpsEnvio>";
             
-        $resp = $this->send($message, $operation);    
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
     /**
@@ -134,7 +145,7 @@ class Tools extends BaseTools
     {
         $operation = 'consultarNfseServicoPrestado';
         $tags = $this->tags($parameters);
-        $message = "<nfse:ConsultarNfseServicoPrestadoEnvio>"
+        $content = "<nfse:ConsultarNfseServicoPrestadoEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . $this->prestador
             . $tags->numero
             . $tags->periodo
@@ -144,7 +155,8 @@ class Tools extends BaseTools
             . $tags->pagina
             . "</nfse:ConsultarNfseServicoPrestadoEnvio>";
             
-        $resp = $this->send($message, $operation); 
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
 
@@ -157,7 +169,7 @@ class Tools extends BaseTools
     {
         $operation = 'consultarNfseServicoTomado';
         $tags = $this->tags($parameters);
-        $message = "<nfse:ConsultarNfseServicoTomadoEnvio>"
+        $content = "<nfse:ConsultarNfseServicoTomadoEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . "<nfse:Consulente>"
             . $this->cpfcnpjtag
             . $this->imtag
@@ -171,23 +183,38 @@ class Tools extends BaseTools
             . $tags->pagina
             . "</nfse:ConsultarNfseServicoTomadoEnvio>";
         
-        $resp = $this->send($message, $operation); 
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
     /**
      * Gera uma NFSe em modo SINCRONO
-     * @param NFePHP\NFSeFiorilli\RpsInterface $rps
+     * @param \NFePHP\NFSeFiorilli\RpsInterface $rps
      * @return string
      */
     public function gerarNfse(RpsInterface $rps)
     {
         $operation = 'gerarNfse';
+        if (!$rps->hasConfig()) {
+            $rps->config($this->config);
+        }
         $tagrps = $rps->render();
-        $message = "<nfse:GerarNfseEnvio>"
+        $content = "<nfse:GerarNfseEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . $tagrps
             . "</nfse:GerarNfseEnvio>";
         
-        $resp = $this->send($message, $operation); 
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'InfDeclaracaoPrestacaoServico',
+            'Id',
+            OPENSSL_ALGO_SHA1,
+            [false, false, null, null],
+            'Rps'
+        );
+        
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
     /**
@@ -200,13 +227,28 @@ class Tools extends BaseTools
         $operation = 'recepcionarLoteRps';
         $qtd = count($rpss);
         $tagrps = '';
-        foreach($rpss as $rps) {
-            $tagrps .= $rps->render();
+        foreach ($rpss as $rps) {
+            if (!$rps->hasConfig()) {
+                $rps->config($this->config);
+            }
+            $xml = $rps->render();
+            
+            $xml = Signer::sign(
+                $this->certificate,
+                $xml,
+                'InfDeclaracaoPrestacaoServico',
+                'Id',
+                OPENSSL_ALGO_SHA1,
+                [false, false, null, null],
+                'Rps'
+            );
+            
+            $tagrps .= $xml;
         }
         //cria um id unico
-        $id = $this->numeric_uuid();
+        $id = $this->numericUuid();
         
-        $message = "<nfse:EnviarLoteRpsEnvio>"
+        $content = "<nfse:EnviarLoteRpsEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . "<nfse:LoteRps Id=\"$id\" versao=\"{$this->wsobj->version}\">"
             . "<nfse:NumeroLote>$id</nfse:NumeroLote>"
             . $this->cpfcnpjtag
@@ -218,7 +260,20 @@ class Tools extends BaseTools
             . "</nfse:LoteRps>"
             . "</nfse:EnviarLoteRpsEnvio>";
         
-        $resp = $this->send($message, $operation); 
+            
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'LoteRps',
+            'Id',
+            OPENSSL_ALGO_SHA1,
+            [false, false, null, null],
+            'EnviarLoteRpsEnvio'
+        );
+        
+        //file_put_contents("/var/www/sped/sped-nfse-fiorilli/local/fixtures/{$operation}_send.xml", $content);
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
     /**
@@ -231,13 +286,28 @@ class Tools extends BaseTools
         $operation = 'recepcionarLoteRpsSincrono';
         $qtd = count($rpss);
         $tagrps = '';
-        foreach($rpss as $rps) {
-            $tagrps .= $rps->render();
+        foreach ($rpss as $rps) {
+            if (!$rps->hasConfig()) {
+                $rps->config($this->config);
+            }
+            $xml = $rps->render();
+            
+            $xml = Signer::sign(
+                $this->certificate,
+                $xml,
+                'InfDeclaracaoPrestacaoServico',
+                'Id',
+                OPENSSL_ALGO_SHA1,
+                [false, false, null, null],
+                'Rps'
+            );
+            
+            $tagrps .= $xml;
         }
         //cria um id unico
-        $id = $this->numeric_uuid();
+        $id = $this->numericUuid();
         
-        $message = "<nfse:EnviarLoteRpsSincronoEnvio>"
+        $content = "<nfse:EnviarLoteRpsSincronoEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
             . "<nfse:LoteRps Id=\"{$id}\" versao=\"{$this->wsobj->version}\">"
             . "<nfse:NumeroLote>{$id}</nfse:NumeroLote>"
             . $this->cpfcnpjtag
@@ -248,46 +318,89 @@ class Tools extends BaseTools
             . "</nfse:ListaRps>"
             . "</nfse:LoteRps>"
             . "</nfse:EnviarLoteRpsSincronoEnvio>";
+            
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'LoteRps',
+            'Id',
+            OPENSSL_ALGO_SHA1,
+            [false, false, null, null],
+            'EnviarLoteRpsSincronoEnvio'
+        );
         
-        $resp = $this->send($message, $operation); 
+        //file_put_contents("/var/www/sped/sped-nfse-fiorilli/local/fixtures/{$operation}_send.xml", $content);
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
     /**
      * Substituir NFse por outro
      * @param int $numero
      * @param int $codigo_cancelamento
-     * @param NFePHP\NFSeFiorilli\RpsInterface $rps
+     * @param \NFePHP\NFSeFiorilli\RpsInterface $rps
      */
     public function substituirNfse($numero, $codigo_cancelamento, RpsInterface $rps)
     {
         $operation = 'substituirNfse';
         
         //cria um id unico
-        $subsid = $this->numeric_uuid();
-        sleep(0.1);
-        //cria um id unico
-        $cancid = $this->numeric_uuid();
-        
+        $id = $this->numericUuid();
+        if (!$rps->hasConfig()) {
+            $rps->config($this->config);
+        }
         $tagrps = $rps->render();
          
-        $message = "<nfse:SubstituirNfseEnvio>"
-            . "<nfse:SubstituicaoNfse Id=\"{$subsid}\">"
-            . $this->pedido_cancelamento($cancid, $numero, $codigo_cancelamento)
+        $content = "<nfse:SubstituirNfseEnvio xmlns:nfse=\"{$this->wsobj->msgns}\">"
+            . "<nfse:SubstituicaoNfse Id=\"{$id}\">"
+            . $this->pedidoCancelamento($numero, $codigo_cancelamento)
             . $tagrps
             . "</nfse:SubstituicaoNfse>"
             . "</nfse:SubstituirNfseEnvio>";
         
-        $resp = $this->send($message, $operation); 
+            
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'InfPedidoCancelamento',
+            'Id',
+            OPENSSL_ALGO_SHA1,
+            [false, false, null, null],
+            'Pedido'
+        );
+        
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'InfDeclaracaoPrestacaoServico',
+            'Id',
+            OPENSSL_ALGO_SHA1,
+            [false, false, null, null],
+            'Rps'
+        );
+        
+        $content = Signer::sign(
+            $this->certificate,
+            $content,
+            'SubstituicaoNfse',
+            'Id',
+            OPENSSL_ALGO_SHA1,
+            [false, false, null, null],
+            'SubstituirNfseEnvio'
+        );
+        
+        //file_put_contents("/var/www/sped/sped-nfse-fiorilli/local/fixtures/{$operation}_send.xml", $content);
+        Validator::isValid($content, $this->xsdpath);
+        return $this->send($content, $operation);
     }
     
     /**
      * Monta a tag de Pedido de Cancelamento
-     * @param string $id
      * @param int $numero
      * @param int $codigo_cancelamento
      * @return string
      */
-    protected function pedido_cancelamento($id, $numero, $codigo_cancelamento = null)
+    protected function pedidoCancelamento($numero, $codigo_cancelamento = null)
     {
         $cmun = $this->config->cmun;
         if ($this->environment == 'homologacao') {
@@ -296,7 +409,7 @@ class Tools extends BaseTools
         $codigo_cancelamento = $codigo_cancelamento ?? 2;
         
         return "<nfse:Pedido>"
-            . "<nfse:InfPedidoCancelamento Id=\"{$id}\">"
+            . "<nfse:InfPedidoCancelamento Id=\"can{$numero}\">"
             . "<nfse:IdentificacaoNfse>"
             . "<nfse:Numero>{$numero}</nfse:Numero>"
             . $this->cpfcnpjtag
@@ -326,17 +439,19 @@ class Tools extends BaseTools
             . "<nfse:DataFinal>{$per->final}</nfse:DataFinal>"
             . "</nfse:PeriodoEmissao>";
         }
-
+        
         $resp->competencia = '';
-        if (!empty($parameters->competencia)) {
-            $per = $parameters->competencia;
-            $resp->competencia = "<nfse:PeriodoCompetencia>"
-            . "<nfse:DataInicial>{$per->inicial}</nfse:DataInicial>"
-            . "<nfse:DataFinal>{$per->final}</nfse:DataFinal>"
-            . "</nfse:PeriodoCompetencia>";
+        if (empty($resp->periodo)) {
+            if (!empty($parameters->competencia)) {
+                $per = $parameters->competencia;
+                $resp->competencia = "<nfse:PeriodoCompetencia>"
+                    . "<nfse:DataInicial>{$per->inicial}</nfse:DataInicial>"
+                    . "<nfse:DataFinal>{$per->final}</nfse:DataFinal>"
+                    . "</nfse:PeriodoCompetencia>";
+            }
         }
         
-        $resp->tomador = '';   
+        $resp->tomador = '';
         if (!empty($parameters->tomador)) {
             $tom = $parameters->tomador;
             $resp->tomador = "<nfse:Tomador>";
@@ -344,12 +459,12 @@ class Tools extends BaseTools
                 $resp->tomador .= "<nfse:CpfCnpj><nfse:Cnpj>{$tom->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
             } elseif (!empty($tom->cpf)) {
                 $resp->tomador .= "<nfse:CpfCnpj><nfse:Cpf>{$tom->cpf}</nfse:Cpf></nfse:CpfCnpj>";
-            }    
+            }
             $resp->tomador .= !empty($tom->im) ? "<nfse:InscricaoMunicipal>{$tom->im}</nfse:InscricaoMunicipal>" : '';
             $resp->tomador .= "</nfse:Tomador>";
         }
         
-        $resp->intermediario = '';   
+        $resp->intermediario = '';
         if (!empty($parameters->intermediario)) {
             $int = $parameters->intermediario;
             $resp->intermediario = "<nfse:Intermediario>";
@@ -357,21 +472,25 @@ class Tools extends BaseTools
                 $resp->intermediario .= "<nfse:CpfCnpj><nfse:Cnpj>{$int->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
             } elseif (!empty($int->cpf)) {
                 $resp->intermediario .= "<nfse:CpfCnpj><nfse:Cpf>{$int->cpf}</nfse:Cpf></nfse:CpfCnpj>";
-            }    
-            $resp->intermediario .= !empty($int->im) ? "<nfse:InscricaoMunicipal>{$int->im}</nfse:InscricaoMunicipal>" : '';
+            }
+            $resp->intermediario .= !empty($int->im)
+                ? "<nfse:InscricaoMunicipal>{$int->im}</nfse:InscricaoMunicipal>"
+                : '';
             $resp->intermediario .= "</nfse:Intermediario>";
-        }   
+        }
         
-        $resp->prestador = '';   
+        $resp->prestador = '';
         if (!empty($parameters->prestador)) {
             $pres = $parameters->prestador;
             $resp->prestador = "<nfse:Prestador>";
             if (!empty($pres->cnpj)) {
-                $resp->prestador .= "<nfse:CpfCnpj><nfse:Cnpj>{$tom->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
+                $resp->prestador .= "<nfse:CpfCnpj><nfse:Cnpj>{$pres->cnpj}</nfse:Cnpj></nfse:CpfCnpj>";
             } elseif (!empty($pres->cpf)) {
-                $resp->prestador .= "<nfse:CpfCnpj><nfse:Cpf>{$tom->cpf}</nfse:Cpf></nfse:CpfCnpj>";
-            }    
-            $resp->prestador .= !empty($pres->im) ? "<nfse:InscricaoMunicipal>{$pres->im}</nfse:InscricaoMunicipal>" : '';
+                $resp->prestador .= "<nfse:CpfCnpj><nfse:Cpf>{$pres->cpf}</nfse:Cpf></nfse:CpfCnpj>";
+            }
+            $resp->prestador .= !empty($pres->im)
+                ? "<nfse:InscricaoMunicipal>{$pres->im}</nfse:InscricaoMunicipal>"
+                : '';
             $resp->prestador .= "</nfse:Prestador>";
         }
         
@@ -380,5 +499,4 @@ class Tools extends BaseTools
         
         return $resp;
     }
-
 }

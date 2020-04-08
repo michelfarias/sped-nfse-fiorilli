@@ -25,4 +25,16 @@ interface RpsInterface
      * @return string
      */
     public function render(stdClass $rps = null);
+    
+    /**
+     * Add config
+     * @param stdClass $config
+     */
+    public function config(\stdClass $config);
+    
+    /**
+     * Verify is config as set
+     * $return bool
+     */
+    public function hasConfig();
 }
