@@ -25,7 +25,7 @@
 |n|Município|UF|Ibge|URL Produção|
 |:---:|:---|:---:|:---:|:---|
 |1|Itacoatiara|AM|1301902|none|
-|2|Macapá|AP|1600303|none|
+|2|Macapá|AP|1600303|[URL Webservice](http://ws.macapa.ap.gov.br/?wsdl)|
 |3|Hidrolândia|GO|5209705|none|
 |4|Bacabal|MA|2101202|none|
 |5|Codó|MA|2103307|none|
@@ -42,105 +42,108 @@
 |16|Sapucaí-Mirim|MG|3165404|none|
 |17|Amambai|MS|5000609|none|
 |18|Chapadão do Sul|MS|5002951|none|
-|19|Corumbá|MS|5003207|none|
+|19|Corumbá|MS|5003207|[URL Webservice](http://nfse.corumba.ms.gov.br:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
 |20|Dois Irmãos do Buriti|MS|5003488|none|
 |21|Nova Alvorada do Sul|MS|5006002|none|
 |22|Paranaíba|MS|5006309|none|
 |23|Barra do Garças|MT|5101803|none|
 |24|Brasnorte|MT|5101902|none|
-|25|Jaciara|MT|5104807|none|
+|25|Jaciara|MT|5104807|[URL Webservice](http://intranet.jaciara.mt.gov.br:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
 |26|Lambari D'Oeste|MT|5105234|none|
-|27|Canaã dos Carajás|PA|1502152|none|
-|28|Itaituba|PA|1503606|none|
-|29|Rio Maria|PA|1506161|none|
-|30|Xinguara|PA|1508407|none|
-|31|Floriano|PI|2203909|none|
-|32|Parnaíba|PI|2207702|none|
-|33|Picos|PI|2208007|none|
-|34|Cardoso Moreira|RJ|3301157|none|
-|35|Ariquemes|RO|1100023|none|
-|36|Espigão D´Oeste|RO|1100098|none|
-|37|Jaru|RO|1100114|none|
-|38|Ji-Paraná|RO|1100122|none|
-|39|Machadinho D´Oeste|RO|1100130|none|
-|40|Ouro Preto do Oeste|RO|1100155|none|
-|41|Quatro Irmãos|RS|4315313|none|
-|42|Serafina Corrêa|RS|4320404|none|
-|43|Altinópolis|SP|3501004|none|
-|44|Alvinlândia|SP|3501509|none|
-|45|Américo de Campos|SP|3501806|none|
-|46|Araçoiaba da Serra|SP|3502903|none|
-|47|Assis|SP|3504008|none|
-|48|Bady Bassitt|SP|3504602|none|
-|49|Bálsamo|SP|3504800|none|
-|50|Bariri|SP|3505203|none|
-|51|Brodowski|SP|3507803|none|
-|52|Cabrália Paulista|SP|3508306|none|
-|53|Cajobi|SP|3509304|none|
-|54|Cândido Rodrigues|SP|3510104|none|
-|55|Capela do Alto|SP|3510302|none|
-|56|Cedral|SP|3511300|none|
-|57|Colômbia|SP|3512100|none|
-|58|Cosmorama|SP|3512902|none|
-|59|Dracena|SP|3514403|none|
-|60|Duartina|SP|3514502|none|
-|61|Fernando Prestes|SP|3515608|none|
-|62|Fernandópolis|SP|3515509|none|
-|63|Garça|SP|3516705|none|
-|64|Guaiçara|SP|3517208|none|
-|65|Guaimbê|SP|3517307|none|
-|66|Guaíra|SP|3517406|none|
-|67|Guará|SP|3517703|none|
-|68|Guararapes|SP|3518206|none|
-|69|Holambra|SP|3519055|none|
-|70|Ibaté|SP|3519303|none|
-|71|Ibitinga|SP|3519600|none|
-|72|Igarapava|SP|3520103|none|
-|73|Indiaporã|SP|3520707|none|
-|74|Inúbia Paulista|SP|3520806|none|
-|75|Itajobi|SP|3521903|none|
-|76|José Bonifácio|SP|3525706|none|
-|77|Junqueirópolis|SP|3526001|none|
-|78|Laranjal Paulista|SP|3526407|none|
-|79|Martinópolis|SP|3529203|none|
-|80|Miguelópolis|SP|3529708|none|
-|81|Mirandópolis|SP|3530102|none|
-|82|Mirassolândia|SP|3530409|none|
-|83|Mongaguá|SP|3531100|none|
-|84|Monte Aprazível|SP|3531407|none|
-|85|Morungaba|SP|3532009|none|
-|86|Nova Aliança|SP|3532801|none|
-|87|Nova Granada|SP|3533007|none|
-|88|Novo Horizonte|SP|3533502|none|
-|89|Palmares Paulista|SP|3535101|none|
-|90|Panorama|SP|3535408|none|
-|91|Patrocínio Paulista|SP|3536307|none|
-|92|Paulo de Faria|SP|3536604|none|
-|93|Pedreira|SP|3537107|none|
-|94|Pirajuí|SP|3538907|none|
-|95|Pirangi|SP|3539004|none|
-|96|Pirapozinho|SP|3539202|none|
-|97|Pontal|SP|3540200|none|
-|98|Potirendaba|SP|3540804|none|
-|99|Promissão|SP|3541604|none|
-|100|Quatá|SP|3541703|none|
-|101|Queiroz|SP|3541802|none|
-|102|Ribeirão Bonito|SP|3542909|none|
-|103|Ribeirão Corrente|SP|3543105|none|
-|104|Rio das Pedras|SP|3544004|none|
-|105|Riolândia|SP|3544202|none|
-|106|Sabino|SP|3544608|none|
-|107|Sales|SP|3544806|none|
-|108|Sales Oliveira|SP|3544905|none|
-|109|Salto de Pirapora|SP|3545308|none|
-|110|Santo Anastácio|SP|3547700|none|
-|111|Santo Antônio de Posse|SP|3548005|none|
-|112|São Joaquim da Barra|SP|3549409|none|
-|113|Serra Azul|SP|3551405|none|
-|114|Serra Negra|SP|3551603|none|
-|115|Sud Mennucci|SP|3552304|none|
-|116|Ubarana|SP|3555356|none|
-|117|Urânia|SP|3555802|none|
+|27|Mirassol D'Oeste|MT|5105622|[URL Webservice](http://186.235.81.12:5663/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|28|Canaã dos Carajás|PA|1502152|none|
+|29|Itaituba|PA|1503606|none|
+|30|Rio Maria|PA|1506161|[URL Webservice](http://177.75.236.132:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|31|Xinguara|PA|1508407|none|
+|32|Floriano|PI|2203909|none|
+|33|Parnaíba|PI|2207702|none|
+|34|Picos|PI|2208007|none|
+|35|Cardoso Moreira|RJ|3301157|none|
+|36|Ariquemes|RO|1100023|[URL Webservice](http://170.82.43.84:5660/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|37|Espigão D´Oeste|RO|1100098|none|
+|38|Jaru|RO|1100114|none|
+|39|Ji-Paraná|RO|1100122|[URL Webservice](http://177.124.184.59:5660/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|40|Machadinho D´Oeste|RO|1100130|none|
+|41|Ouro Preto do Oeste|RO|1100155|none|
+|42|Quatro Irmãos|RS|4315313|none|
+|43|Marau|RS|4311809|[URL Webservice](http://nfse.pmmarau.com.br:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|44|Serafina Corrêa|RS|4320404|none|
+|45|Três Arroios|RS|4321634|[URL Webservice](http://portal.pmtresarroios.com.br:8888/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|46|Altinópolis|SP|3501004|none|
+|47|Alvinlândia|SP|3501509|none|
+|48|Américo de Campos|SP|3501806|[URL Webservice](http://189.108.31.114:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|49|Araçoiaba da Serra|SP|3502903|none|
+|50|Assis|SP|3504008|[URL Webservice](https://nfsews.assis.sp.gov.br/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|51|Bady Bassitt|SP|3504602|none|
+|52|Bálsamo|SP|3504800|none|
+|53|Bariri|SP|3505203|(URL Webservices)(http://sipweb.bariri.sp.gov.br:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|54|Brodowski|SP|3507803|none|
+|55|Cabrália Paulista|SP|3508306|none|
+|56|Cajobi|SP|3509304|none|
+|57|Cândido Rodrigues|SP|3510104|none|
+|58|Capela do Alto|SP|3510302|none|
+|59|Cedral|SP|3511300|none|
+|60|Colômbia|SP|3512100|none|
+|61|Cosmorama|SP|3512902|none|
+|62|Dracena|SP|3514403|[URL Webservice](http://187.17.201.221:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|63|Duartina|SP|3514502|[URL Webservice](http://186.224.0.62:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|64|Fernando Prestes|SP|3515608|none|
+|65|Fernandópolis|SP|3515509|[URL Webservice](http://servicos.fernandopolis.sp.gov.br:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|66|Garça|SP|3516705|none|
+|67|Guaiçara|SP|3517208|none|
+|68|Guaimbê|SP|3517307|none|
+|69|Guaíra|SP|3517406|[URL Webservice](http://186.211.16.210:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|70|Guará|SP|3517703|none|
+|71|Guararapes|SP|3518206|none|
+|72|Holambra|SP|3519055|none|
+|73|Ibaté|SP|3519303|[URL Webservice](http://200.205.131.110:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|74|Ibitinga|SP|3519600|none|
+|75|Igarapava|SP|3520103|[URL Webservice](http://138.117.189.204:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|76|Indiaporã|SP|3520707|none|
+|77|Inúbia Paulista|SP|3520806|none|
+|78|Itajobi|SP|3521903|none|
+|79|José Bonifácio|SP|3525706|none|
+|80|Junqueirópolis|SP|3526001|none|
+|81|Laranjal Paulista|SP|3526407|none|
+|82|Martinópolis|SP|3529203|none|
+|83|Miguelópolis|SP|3529708|none|
+|84|Mirandópolis|SP|3530102|none|
+|85|Mirassolândia|SP|3530409|none|
+|86|Mongaguá|SP|3531100|none|
+|87|Monte Aprazível|SP|3531407|none|
+|88|Morungaba|SP|3532009|[URL Webservice](http://servicos.morungaba.sp.gov.br:5600/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|89|Nova Aliança|SP|3532801|none|
+|90|Nova Granada|SP|3533007|none|
+|91|Novo Horizonte|SP|3533502|[URL Webservice](http://nfews.novohorizonte.sp.gov.br/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|92|Palmares Paulista|SP|3535101|none|
+|93|Panorama|SP|3535408|none|
+|94|Patrocínio Paulista|SP|3536307|none|
+|95|Paulo de Faria|SP|3536604|none|
+|96|Pedreira|SP|3537107|none|
+|97|Pirajuí|SP|3538907|[URL Webservice](http://189.57.88.130:3392/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|98|Pirangi|SP|3539004|[URL Webservice](http://portal.pmpirangi.com.br:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|99|Pirapozinho|SP|3539202|none|
+|100|Pontal|SP|3540200|none|
+|101|Potirendaba|SP|3540804|none|
+|102|Promissão|SP|3541604|none|
+|103|Quatá|SP|3541703|none|
+|104|Queiroz|SP|3541802|none|
+|105|Ribeirão Bonito|SP|3542909|none|
+|106|Ribeirão Corrente|SP|3543105|none|
+|107|Rio das Pedras|SP|3544004|[URL Webservice](http://riodaspedras.brgov.com.br:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|108|Riolândia|SP|3544202|none|
+|109|Sabino|SP|3544608|none|
+|110|Sales|SP|3544806|none|
+|111|Sales Oliveira|SP|3544905|[URL Webservice](http://issweb.salesoliveira.sp.gov.br:9090/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|112|Salto de Pirapora|SP|3545308|none|
+|113|Santo Anastácio|SP|3547700|none|
+|114|Santo Antônio de Posse|SP|3548005|[URL Webservice](http://177.36.128.42:8080/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|115|São Joaquim da Barra|SP|3549409|[URL Webservice](http://187.72.128.113:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|116|Serra Azul|SP|3551405|none|
+|117|Serra Negra|SP|3551603|[URL Webservice](http://intra.serranegra.sp.gov.br/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|118|Sud Mennucci|SP|3552304|none|
+|119|Ubarana|SP|3555356|none|
+|120|Urânia|SP|3555802|none|
 
 
 ## Observações
