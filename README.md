@@ -248,7 +248,6 @@ Este pacote está diponibilizado sob LGPLv3 ou MIT License (MIT). Leia  [Arquivo
 [ico-downloads]: https://img.shields.io/packagist/dt/nfephp-org/sped-nfse-fiorilli.svg?style=flat-square
 [ico-version]: https://img.shields.io/packagist/v/nfephp-org/sped-nfse-fiorilli.svg?style=flat-square
 [ico-license]: https://poser.pugx.org/nfephp-org/sped-nfse-fiorilli/license?style=flat-square
-[ico-gitter]: https://img.shields.io/badge/GITTER-4%20users%20online-green.svg?style=flat-square
 
 
 [link-packagist]: https://packagist.org/packages/nfephp-org/sped-nfse-fiorilli
