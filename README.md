@@ -76,7 +76,7 @@
 |50|Assis|SP|3504008|[URL Webservice](https://nfsews.assis.sp.gov.br/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
 |51|Bady Bassitt|SP|3504602|none|
 |52|Bálsamo|SP|3504800|none|
-|53|Bariri|SP|3505203|(URL Webservices)(http://sipweb.bariri.sp.gov.br:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
+|53|Bariri|SP|3505203|[URL Webservice](http://sipweb.bariri.sp.gov.br:5661/IssWeb-ejb/IssWebWS/IssWebWS?wsdl)|
 |54|Brodowski|SP|3507803|none|
 |55|Cabrália Paulista|SP|3508306|none|
 |56|Cajobi|SP|3509304|none|
