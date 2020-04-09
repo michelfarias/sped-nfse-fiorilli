@@ -18,7 +18,7 @@
 [![Stars][ico-stars]][link-stars]
 
 
-## Municípios atendidos pelo provedor
+## Municípios (possivelmente) atendidos pelo provedor
 
 > NOTA: Faltam as URLs dos servidores de Produção desses Municipios, quem desejar usar deve informar essa URL para incluirmos no código.
 
