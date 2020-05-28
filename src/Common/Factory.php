@@ -100,7 +100,7 @@ class Factory
         $this->dom->addChild(
             $infRps,
             "RegimeEspecialTributacao",
-            $this->std->regimeespecialtributacao,
+            $this->std->regimeespecialtributacao ?? null,
             false
         );
         $this->dom->addChild(
@@ -181,13 +181,13 @@ class Factory
         $this->dom->addChild(
             $cpfcnpj,
             "Cnpj",
-            !empty($this->config->cnpj) ? $this->config->cnpj : null,
+            $this->config->cnpj ?? null,
             false
         );
         $this->dom->addChild(
             $cpfcnpj,
             "Cpf",
-            !empty($this->config->cpf) ? $this->config->cpf : null,
+            $this->config->cpf ?? null,
             false
         );
         $node->appendChild($cpfcnpj);
@@ -302,7 +302,7 @@ class Factory
             true
         );
         //se for passado um codigo CNAE começando com ZERO irá dar erro de assinatura
-        //portanto esse codigo (opecional) não será usado
+        //portanto esse codigo (opcional) não será usado
         $this->dom->addChild(
             $node,
             "CodigoCnae",
@@ -312,7 +312,7 @@ class Factory
         $this->dom->addChild(
             $node,
             "CodigoTributacaoMunicipio",
-            isset($serv->codigotributacaomunicipio) ? $serv->codigotributacaomunicipio : null,
+            $serv->codigotributacaomunicipio ?? null,
             false
         );
         $this->dom->addChild(
@@ -330,7 +330,7 @@ class Factory
         $this->dom->addChild(
             $node,
             "CodigoPais",
-            isset($serv->codigopais) ? $serv->codigopais : null,
+            $serv->codigopais ?? null,
             false
         );
         $this->dom->addChild(
@@ -342,13 +342,13 @@ class Factory
         $this->dom->addChild(
             $node,
             "MunicipioIncidencia",
-            isset($serv->municipioincidencia) ? $serv->municipioincidencia : null,
+            $serv->municipioincidencia ?? null,
             false
         );
         $this->dom->addChild(
             $node,
             "NumeroProcesso",
-            isset($serv->numeroprocesso) ? $serv->numeroprocesso : null,
+            $serv->numeroprocesso ?? null,
             false
         );
         $parent->appendChild($node);
@@ -388,7 +388,7 @@ class Factory
         $this->dom->addChild(
             $ide,
             "InscricaoMunicipal",
-            isset($tom->inscricaomunicipal) ? $tom->inscricaomunicipal : null,
+            $tom->inscricaomunicipal ?? null,
             false
         );
         $node->appendChild($ide);
@@ -416,7 +416,7 @@ class Factory
             $this->dom->addChild(
                 $endereco,
                 "Complemento",
-                isset($end->complemento) ? $end->complemento : null,
+                $end->complemento ?? null,
                 false
             );
             $this->dom->addChild(
@@ -440,7 +440,7 @@ class Factory
             $this->dom->addChild(
                 $endereco,
                 "CodigoPais",
-                isset($end->codigopais) ? $end->codigopais : null,
+                $end->codigopais ?? null,
                 false
             );
             $this->dom->addChild(
@@ -456,13 +456,13 @@ class Factory
             $this->dom->addChild(
                 $contato,
                 "Telefone",
-                isset($tom->telefone) ? $tom->telefone : null,
+                $tom->telefone ?? null,
                 false
             );
             $this->dom->addChild(
                 $contato,
                 "Email",
-                isset($tom->email) ? $tom->email : null,
+                $tom->email ?? null,
                 false
             );
             $node->appendChild($contato);
@@ -502,7 +502,7 @@ class Factory
         $this->dom->addChild(
             $ide,
             "InscricaoMunicipal",
-            $int->inscricaomunicipal,
+            $int->inscricaomunicipal ?? null,
             false
         );
         $node->appendChild($ide);
@@ -530,7 +530,7 @@ class Factory
         $this->dom->addChild(
             $node,
             "CodigoObra",
-            isset($obra->codigoobra) ? $obra->codigoobra : null,
+            $obra->codigoobra ?? null,
             false
         );
         $this->dom->addChild(
